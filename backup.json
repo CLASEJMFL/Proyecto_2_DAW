@@ -1,0 +1,1493 @@
+[
+{
+    "model": "core.usuario",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$Qf1LX3z0VQZcycn0kGbzNE$is5AScwwhAynOq7VZMP4USFPrjiED6NCqvCeAadJMcU=",
+        "last_login": null,
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@admin.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-10-26T12:33:39.366Z",
+        "foto_perfil": "",
+        "biografia": "",
+        "fecha_registro": "2026-10-26T12:33:39.742Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "core.usuario",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$SjLxIlfRUK4JGw2xANafYj$1A+eJ9EWIcdDH64D/4AO5KZJv5Zft1PRc3dT8Km/Nhg=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "usuario1",
+        "first_name": "Néstor",
+        "last_name": "Aguilar",
+        "email": "usuario1@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-10-26T14:07:17.326Z",
+        "foto_perfil": "https://picsum.photos/457/876",
+        "biografia": "Meses razones secretario p. Martín parece baja cuatro mejores zonas. Hermano persona varios cosas.",
+        "fecha_registro": "2026-10-26T14:07:17.719Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "core.usuario",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$h9gP4BaPE8EBROaxxiGQAo$aw8973rvrGJY0ZfZA5Ksv5y1gKHLgTM4n2Sr4sryoaM=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "usuario2",
+        "first_name": "Jose",
+        "last_name": "Villalba",
+        "email": "usuario2@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-10-26T14:07:17.721Z",
+        "foto_perfil": "https://dummyimage.com/857x706",
+        "biografia": "Relaciones cual mayores podemos c ciudad. Origen más siglo producción generales afirmó humana.",
+        "fecha_registro": "2026-10-26T14:07:18.100Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "core.usuario",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$P9zun7TOAnbSGk9tMiZEH9$/p1fwDZSdbruNC32x5YG8SfSwaBojmtQke4gOaO57/U=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "usuario3",
+        "first_name": "Calisto",
+        "last_name": "Luz",
+        "email": "usuario3@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-10-26T14:07:18.101Z",
+        "foto_perfil": "https://placekittens.com/704/814",
+        "biografia": "Formación elementos deja cara. Dólares mundo interés hombres producción.",
+        "fecha_registro": "2026-10-26T14:07:18.482Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "core.usuario",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$bAUJ9qsYg3UChyjJobUwd2$PJhxLPxMWZxWqV1sYSJwK2gT/aeqrTj9z6yWbRyXopA=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "usuario4",
+        "first_name": "Alejandra",
+        "last_name": "Pomares",
+        "email": "usuario4@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-10-26T14:07:18.482Z",
+        "foto_perfil": "https://picsum.photos/448/416",
+        "biografia": "Zonas contra defensa más comercio teatro r. Fuerte expresión objetivo porque primera cine río eso.",
+        "fecha_registro": "2026-10-26T14:07:18.862Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "core.usuario",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$T5cVsLQceFuBmXONfOLizU$spFILupNDyKv+0TFDlm5vwcWyZMr4A1E95ib072oWdU=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "usuario5",
+        "first_name": "Domingo",
+        "last_name": "Pazos",
+        "email": "usuario5@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-10-26T14:07:18.863Z",
+        "foto_perfil": "https://dummyimage.com/911x30",
+        "biografia": "Todas educación población entrar cerca que. Ni paz poner paso.",
+        "fecha_registro": "2026-10-26T14:07:19.237Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "core.usuario",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$vbyyG5q8AG0Y61oju953VH$qP/s4YbffPmz3IrCoiLYc4Lz9TZE+JiocSBrli++idU=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "usuario6",
+        "first_name": "María Belén",
+        "last_name": "Durán",
+        "email": "usuario6@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-10-26T14:07:19.238Z",
+        "foto_perfil": "https://dummyimage.com/1014x227",
+        "biografia": "Alta valores fuentes humano ex. Falta corazón natural seis.",
+        "fecha_registro": "2026-10-26T14:07:19.608Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "core.usuario",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$coZobxAxbcyhK5QNhdvpsH$5p0UV59d8NUH1lXP1qKJms9Z6db+WhfX8GNQgP7Q8lk=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "usuario7",
+        "first_name": "Araceli",
+        "last_name": "Cepeda",
+        "email": "usuario7@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-10-26T14:07:19.608Z",
+        "foto_perfil": "https://dummyimage.com/165x169",
+        "biografia": "Dólares pasado domingo otros abril carne teoría algo. Vista régimen somos elecciones revolución.",
+        "fecha_registro": "2026-10-26T14:07:19.980Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "core.usuario",
+    "pk": 9,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$VjerJhDuS9iUYjaZW6KMM2$onp2S+i0X5ZgmDKELgS4SK+pF1VE9kiroxfsCoChX4s=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "usuario8",
+        "first_name": "Sebastián",
+        "last_name": "Diéguez",
+        "email": "usuario8@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-10-26T14:07:19.981Z",
+        "foto_perfil": "https://picsum.photos/483/227",
+        "biografia": "Causa encuentro unidad nuevas construcción usted. Primera ex barcelona otras teoría m menor carne.",
+        "fecha_registro": "2026-10-26T14:07:20.353Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "core.usuario",
+    "pk": 10,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$Ar4SOeMc7AAKKmnpeUSqvB$BjcTuC+NqyiyKydSGhQfyGMZzFrmN7gsMHPNoJ3LBeo=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "usuario9",
+        "first_name": "Pilar",
+        "last_name": "Donaire",
+        "email": "usuario9@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-10-26T14:07:20.353Z",
+        "foto_perfil": "https://dummyimage.com/306x454",
+        "biografia": "Paso importantes obra norte. Carta aire encuentran hubo.",
+        "fecha_registro": "2026-10-26T14:07:20.724Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "core.usuario",
+    "pk": 11,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$Wfn0fsZ2WeYJry6jzn00Lv$UYX/7XGBG/5NJrz/H027IYzuIUiEeutBxc7x5j/sgoc=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "usuario10",
+        "first_name": "Susana",
+        "last_name": "Medina",
+        "email": "usuario10@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-10-26T14:07:20.724Z",
+        "foto_perfil": "https://dummyimage.com/62x10",
+        "biografia": "Hora secretario gran centros viejo lenguaje encuentran. Cultura unas existencia vuelve aun junto.",
+        "fecha_registro": "2026-10-26T14:07:21.094Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "core.amistad",
+    "pk": 1,
+    "fields": {
+        "usuario_origen": 2,
+        "usuario_destino": 3,
+        "estado": "pendiente",
+        "fecha_solicitud": "2026-10-26T14:07:21.104Z",
+        "fecha_aceptacion": null
+    }
+},
+{
+    "model": "core.amistad",
+    "pk": 2,
+    "fields": {
+        "usuario_origen": 3,
+        "usuario_destino": 4,
+        "estado": "pendiente",
+        "fecha_solicitud": "2026-10-26T14:07:21.104Z",
+        "fecha_aceptacion": null
+    }
+},
+{
+    "model": "core.amistad",
+    "pk": 3,
+    "fields": {
+        "usuario_origen": 4,
+        "usuario_destino": 5,
+        "estado": "pendiente",
+        "fecha_solicitud": "2026-10-26T14:07:21.104Z",
+        "fecha_aceptacion": null
+    }
+},
+{
+    "model": "core.amistad",
+    "pk": 4,
+    "fields": {
+        "usuario_origen": 5,
+        "usuario_destino": 6,
+        "estado": "pendiente",
+        "fecha_solicitud": "2026-10-26T14:07:21.105Z",
+        "fecha_aceptacion": null
+    }
+},
+{
+    "model": "core.amistad",
+    "pk": 5,
+    "fields": {
+        "usuario_origen": 6,
+        "usuario_destino": 7,
+        "estado": "pendiente",
+        "fecha_solicitud": "2026-10-26T14:07:21.105Z",
+        "fecha_aceptacion": null
+    }
+},
+{
+    "model": "core.amistad",
+    "pk": 6,
+    "fields": {
+        "usuario_origen": 7,
+        "usuario_destino": 8,
+        "estado": "pendiente",
+        "fecha_solicitud": "2026-10-26T14:07:21.105Z",
+        "fecha_aceptacion": null
+    }
+},
+{
+    "model": "core.amistad",
+    "pk": 7,
+    "fields": {
+        "usuario_origen": 8,
+        "usuario_destino": 9,
+        "estado": "pendiente",
+        "fecha_solicitud": "2026-10-26T14:07:21.105Z",
+        "fecha_aceptacion": null
+    }
+},
+{
+    "model": "core.amistad",
+    "pk": 8,
+    "fields": {
+        "usuario_origen": 9,
+        "usuario_destino": 10,
+        "estado": "pendiente",
+        "fecha_solicitud": "2026-10-26T14:07:21.105Z",
+        "fecha_aceptacion": null
+    }
+},
+{
+    "model": "core.amistad",
+    "pk": 9,
+    "fields": {
+        "usuario_origen": 10,
+        "usuario_destino": 11,
+        "estado": "pendiente",
+        "fecha_solicitud": "2026-10-26T14:07:21.106Z",
+        "fecha_aceptacion": null
+    }
+},
+{
+    "model": "core.amistad",
+    "pk": 10,
+    "fields": {
+        "usuario_origen": 11,
+        "usuario_destino": 2,
+        "estado": "pendiente",
+        "fecha_solicitud": "2026-10-26T14:07:21.106Z",
+        "fecha_aceptacion": null
+    }
+},
+{
+    "model": "core.grupo",
+    "pk": 1,
+    "fields": {
+        "nombre": "Grupo 1",
+        "descripcion": "Presencia estilo viejo presente autor dejar. Papel dan sol embargo región p alta.",
+        "imagen": "https://placekittens.com/632/207",
+        "fecha_creacion": "2026-10-26T14:07:21.095Z"
+    }
+},
+{
+    "model": "core.grupo",
+    "pk": 2,
+    "fields": {
+        "nombre": "Grupo 2",
+        "descripcion": "Cuya encontrar dirección tú vino comunicación cabeza. Ejemplo cualquier personal paciente superior. Mano tener qué informe cuenta tiempo.",
+        "imagen": "https://placekittens.com/507/400",
+        "fecha_creacion": "2026-10-26T14:07:21.095Z"
+    }
+},
+{
+    "model": "core.grupo",
+    "pk": 3,
+    "fields": {
+        "nombre": "Grupo 3",
+        "descripcion": "Militar recursos dolor oposición el.\nDa hora podía.",
+        "imagen": "https://picsum.photos/634/360",
+        "fecha_creacion": "2026-10-26T14:07:21.095Z"
+    }
+},
+{
+    "model": "core.grupo",
+    "pk": 4,
+    "fields": {
+        "nombre": "Grupo 4",
+        "descripcion": "La primer nuestra peor. Deja español idea producto.",
+        "imagen": "https://picsum.photos/826/354",
+        "fecha_creacion": "2026-10-26T14:07:21.096Z"
+    }
+},
+{
+    "model": "core.grupo",
+    "pk": 5,
+    "fields": {
+        "nombre": "Grupo 5",
+        "descripcion": "Tendrá y visita llega. Será central puntos nos asimismo.",
+        "imagen": "https://dummyimage.com/443x637",
+        "fecha_creacion": "2026-10-26T14:07:21.096Z"
+    }
+},
+{
+    "model": "core.grupo",
+    "pk": 6,
+    "fields": {
+        "nombre": "Grupo 6",
+        "descripcion": "Nuestras supuesto pronto joven josé cuatro voz proceso. Cuadro sur imposible vivir.",
+        "imagen": "https://placekittens.com/800/761",
+        "fecha_creacion": "2026-10-26T14:07:21.096Z"
+    }
+},
+{
+    "model": "core.grupo",
+    "pk": 7,
+    "fields": {
+        "nombre": "Grupo 7",
+        "descripcion": "Tuvo aire dicho general sabe instituciones. Estilo han busca destino buen crisis de vuelve. Sueño cine análisis flores norte junto algo.",
+        "imagen": "https://dummyimage.com/60x372",
+        "fecha_creacion": "2026-10-26T14:07:21.097Z"
+    }
+},
+{
+    "model": "core.grupo",
+    "pk": 8,
+    "fields": {
+        "nombre": "Grupo 8",
+        "descripcion": "Estoy pasado empresa marzo aquella considera m. Tienen chile sé días. Conocer condiciones caso fácil investigación grande.",
+        "imagen": "https://dummyimage.com/952x687",
+        "fecha_creacion": "2026-10-26T14:07:21.097Z"
+    }
+},
+{
+    "model": "core.grupo",
+    "pk": 9,
+    "fields": {
+        "nombre": "Grupo 9",
+        "descripcion": "Trabajar volvió finalmente era tan eran. Relaciones pero considera fútbol pudo. Señora capaz pregunta contenido. Ir permite poner instituciones esto.",
+        "imagen": "https://dummyimage.com/292x778",
+        "fecha_creacion": "2026-10-26T14:07:21.097Z"
+    }
+},
+{
+    "model": "core.grupo",
+    "pk": 10,
+    "fields": {
+        "nombre": "Grupo 10",
+        "descripcion": "Voluntad investigación deseo antes tengo debido sea general. Jefe has éxito producto vuelve verdad.",
+        "imagen": "https://picsum.photos/940/82",
+        "fecha_creacion": "2026-10-26T14:07:21.098Z"
+    }
+},
+{
+    "model": "core.pertenencia",
+    "pk": 1,
+    "fields": {
+        "usuario": 2,
+        "grupo": 1,
+        "rol": "miembro",
+        "fecha_union": "2026-10-26T14:07:21.102Z"
+    }
+},
+{
+    "model": "core.pertenencia",
+    "pk": 2,
+    "fields": {
+        "usuario": 3,
+        "grupo": 2,
+        "rol": "miembro",
+        "fecha_union": "2026-10-26T14:07:21.102Z"
+    }
+},
+{
+    "model": "core.pertenencia",
+    "pk": 3,
+    "fields": {
+        "usuario": 4,
+        "grupo": 3,
+        "rol": "miembro",
+        "fecha_union": "2026-10-26T14:07:21.102Z"
+    }
+},
+{
+    "model": "core.pertenencia",
+    "pk": 4,
+    "fields": {
+        "usuario": 5,
+        "grupo": 4,
+        "rol": "miembro",
+        "fecha_union": "2026-10-26T14:07:21.102Z"
+    }
+},
+{
+    "model": "core.pertenencia",
+    "pk": 5,
+    "fields": {
+        "usuario": 6,
+        "grupo": 5,
+        "rol": "miembro",
+        "fecha_union": "2026-10-26T14:07:21.103Z"
+    }
+},
+{
+    "model": "core.pertenencia",
+    "pk": 6,
+    "fields": {
+        "usuario": 7,
+        "grupo": 6,
+        "rol": "miembro",
+        "fecha_union": "2026-10-26T14:07:21.103Z"
+    }
+},
+{
+    "model": "core.pertenencia",
+    "pk": 7,
+    "fields": {
+        "usuario": 8,
+        "grupo": 7,
+        "rol": "miembro",
+        "fecha_union": "2026-10-26T14:07:21.103Z"
+    }
+},
+{
+    "model": "core.pertenencia",
+    "pk": 8,
+    "fields": {
+        "usuario": 9,
+        "grupo": 8,
+        "rol": "miembro",
+        "fecha_union": "2026-10-26T14:07:21.103Z"
+    }
+},
+{
+    "model": "core.pertenencia",
+    "pk": 9,
+    "fields": {
+        "usuario": 10,
+        "grupo": 9,
+        "rol": "miembro",
+        "fecha_union": "2026-10-26T14:07:21.103Z"
+    }
+},
+{
+    "model": "core.pertenencia",
+    "pk": 10,
+    "fields": {
+        "usuario": 11,
+        "grupo": 10,
+        "rol": "miembro",
+        "fecha_union": "2026-10-26T14:07:21.104Z"
+    }
+},
+{
+    "model": "core.juego",
+    "pk": 1,
+    "fields": {
+        "nombre": "Future-proofed motivating groupware",
+        "descripcion": "Aspectos del reunión qué cinco. Estar cámara comisión material general. Pasar última menos segunda segunda. Sentido donde servicio algunas.",
+        "genero": "Terror",
+        "imagen": "https://picsum.photos/323/335",
+        "fecha_lanzamiento": null,
+        "plataformas": "Xbox"
+    }
+},
+{
+    "model": "core.juego",
+    "pk": 2,
+    "fields": {
+        "nombre": "Proactive logistical focus group",
+        "descripcion": "Les parís base general esa mitad g conciencia. Siete siguiente abril había democracia han paz. Viejo puntos santiago económico puede momentos están.",
+        "genero": "Acción",
+        "imagen": "https://picsum.photos/629/617",
+        "fecha_lanzamiento": null,
+        "plataformas": "Xbox"
+    }
+},
+{
+    "model": "core.juego",
+    "pk": 3,
+    "fields": {
+        "nombre": "Secured transitional implementation",
+        "descripcion": "Podrá mayo corte líder. Sería eran elementos valor ojos ambiente. Victoria pueblo niño izquierda.",
+        "genero": "Acción",
+        "imagen": "https://placekittens.com/789/188",
+        "fecha_lanzamiento": null,
+        "plataformas": "PS5"
+    }
+},
+{
+    "model": "core.juego",
+    "pk": 4,
+    "fields": {
+        "nombre": "Intuitive object-oriented moderator",
+        "descripcion": "Hijos nunca conjunto palabra. Argentina vida niños sentido cierto posibilidad seguro opinión.",
+        "genero": "Deportes",
+        "imagen": "https://picsum.photos/71/3",
+        "fecha_lanzamiento": null,
+        "plataformas": "Nintendo Switch"
+    }
+},
+{
+    "model": "core.juego",
+    "pk": 5,
+    "fields": {
+        "nombre": "Advanced leadingedge budgetary management",
+        "descripcion": "Jefe movimiento seis enfermedad diez trabajar.",
+        "genero": "RPG",
+        "imagen": "https://picsum.photos/787/943",
+        "fecha_lanzamiento": null,
+        "plataformas": "PS5"
+    }
+},
+{
+    "model": "core.juego",
+    "pk": 6,
+    "fields": {
+        "nombre": "Organized reciprocal strategy",
+        "descripcion": "Actitud cuya figura como mano mañana. Dado personas así éste buena. Habla ii estaban niveles.",
+        "genero": "Estrategia",
+        "imagen": "https://placekittens.com/858/617",
+        "fecha_lanzamiento": null,
+        "plataformas": "PC"
+    }
+},
+{
+    "model": "core.juego",
+    "pk": 7,
+    "fields": {
+        "nombre": "Adaptive attitude-oriented interface",
+        "descripcion": "Hijo época cuenta. Diario están te animales mejores contra.",
+        "genero": "Estrategia",
+        "imagen": "https://dummyimage.com/788x434",
+        "fecha_lanzamiento": null,
+        "plataformas": "Nintendo Switch"
+    }
+},
+{
+    "model": "core.juego",
+    "pk": 8,
+    "fields": {
+        "nombre": "Optional zero administration collaboration",
+        "descripcion": "Ayer nuevas producción dice da felipe. Administración personas grupos civil.\nRafael j será mayor ii. Viene cuanto m consecuencia sigue ahí oposición.",
+        "genero": "Terror",
+        "imagen": "https://picsum.photos/1018/348",
+        "fecha_lanzamiento": null,
+        "plataformas": "PC"
+    }
+},
+{
+    "model": "core.juego",
+    "pk": 9,
+    "fields": {
+        "nombre": "Enhanced needs-based collaboration",
+        "descripcion": "Dentro idea vuelta llegado barcelona marco.",
+        "genero": "Deportes",
+        "imagen": "https://picsum.photos/379/639",
+        "fecha_lanzamiento": null,
+        "plataformas": "PC"
+    }
+},
+{
+    "model": "core.juego",
+    "pk": 10,
+    "fields": {
+        "nombre": "User-centric composite benchmark",
+        "descripcion": "Blanco trata riesgo primero estos. Quería falta ahora ve. Media país radio libre haya.\nCambio equipo paz suelo ayuda.",
+        "genero": "Deportes",
+        "imagen": "https://picsum.photos/121/581",
+        "fecha_lanzamiento": null,
+        "plataformas": "PC"
+    }
+},
+{
+    "model": "core.noticia",
+    "pk": 1,
+    "fields": {
+        "titulo": "Nunca haber sean dinero.",
+        "contenido": "Instituciones interior volver razón madre línea dejó. Hora población energía ocasiones dónde. Decisión área soy tribunal europa semanas características.\nEx precisamente lópez buenos mucho. Vino domingo luz región humana. Características gran usted p.",
+        "fecha_publicacion": "2026-10-26T14:07:21.106Z",
+        "autor": 2,
+        "grupo": 1,
+        "juego": 1
+    }
+},
+{
+    "model": "core.noticia",
+    "pk": 2,
+    "fields": {
+        "titulo": "Casos podemos argentina particular pues.",
+        "contenido": "Reunión mis rey viene elecciones media. Principios pensar n asociación zonas. Cultural pp sala existencia jóvenes última objeto.\nNunca agua antonio zonas. Consumo naturaleza noche.\nLejos pueda primera. Recuerdo misma hijo vía d carácter hecho. Lejos temas argentina tener único han fin.",
+        "fecha_publicacion": "2026-10-26T14:07:21.107Z",
+        "autor": 3,
+        "grupo": 2,
+        "juego": 2
+    }
+},
+{
+    "model": "core.noticia",
+    "pk": 3,
+    "fields": {
+        "titulo": "Ningún finalmente mujeres especialmente amigo ésta línea.",
+        "contenido": "Hoy incluso uno producto razón vez. Dolor juan mira cómo podrá médico minutos. Algún ésta suficiente deja estoy.\nColor económica posición ello mundial. Norte cuarto particular poner les. Mujer juan garcía plaza pasado.\nDifícil algún junto tu. Construcción animales mar mar y exterior hizo plazo.",
+        "fecha_publicacion": "2026-10-26T14:07:21.107Z",
+        "autor": 4,
+        "grupo": 3,
+        "juego": 3
+    }
+},
+{
+    "model": "core.noticia",
+    "pk": 4,
+    "fields": {
+        "titulo": "Única momentos espacio principales pueden considera era el.",
+        "contenido": "Dejó oro medio gobierno conocer. Ministerio llegado niveles blanco capital final todos tampoco.\nQuizá cómo hemos mejor hecho otras recuerdo.\nSer médico teoría semana crisis solo formas ayuda. Cine es especial precios centro. Único hizo dejar hizo partido comercio se.",
+        "fecha_publicacion": "2026-10-26T14:07:21.108Z",
+        "autor": 5,
+        "grupo": 4,
+        "juego": 4
+    }
+},
+{
+    "model": "core.noticia",
+    "pk": 5,
+    "fields": {
+        "titulo": "España niño bueno cámara.",
+        "contenido": "Qué torno dar estas. Argentina siempre club presente pronto exterior posibilidad.\nPedro unidad objeto ve. Encontrar centros nuevo estos modo.\nTemas particular misma viejo sin derechos. Natural he p especialmente.\nPasa tuvo función vuelve mano.",
+        "fecha_publicacion": "2026-10-26T14:07:21.108Z",
+        "autor": 6,
+        "grupo": 5,
+        "juego": 5
+    }
+},
+{
+    "model": "core.noticia",
+    "pk": 6,
+    "fields": {
+        "titulo": "Al peor quedó éxito.",
+        "contenido": "Siglo dejó has nada alta cultura. Aquí entre éxito nivel hemos podía. Autoridades esta pedro mañana. Explicó políticos una calle.\nSecretario texto eran fondo nueva público personal y. Campaña estos asunto fondo acciones seguir razón. Objeto principio tienen. Segunda sector p.",
+        "fecha_publicacion": "2026-10-26T14:07:21.109Z",
+        "autor": 7,
+        "grupo": 6,
+        "juego": 6
+    }
+},
+{
+    "model": "core.noticia",
+    "pk": 7,
+    "fields": {
+        "titulo": "Primeros naturaleza defensa aquellos respuesta cargo serie poner.",
+        "contenido": "Y compañía vez tales.\nPública ver oposición. Cultura elecciones lo respuesta familia.\nTiene voluntad eso serán electoral tres. Presencia sistema arriba haya. P antonio riesgo educación quien.",
+        "fecha_publicacion": "2026-10-26T14:07:21.109Z",
+        "autor": 8,
+        "grupo": 7,
+        "juego": 7
+    }
+},
+{
+    "model": "core.noticia",
+    "pk": 8,
+    "fields": {
+        "titulo": "Creación paciente baja cuyo algunas tras.",
+        "contenido": "Dio sociedad aún blanco.\nSectores pie hospital pesar actividades cantidad. Economía líder naturaleza como.\nSeñor existencia actividad chile área tres. Existen jóvenes habría.",
+        "fecha_publicacion": "2026-10-26T14:07:21.110Z",
+        "autor": 9,
+        "grupo": 8,
+        "juego": 8
+    }
+},
+{
+    "model": "core.noticia",
+    "pk": 9,
+    "fields": {
+        "titulo": "Proyecto diversas sino llevar anterior hacerlo peso.",
+        "contenido": "Capacidad de don pues lo pequeña e josé. Respecto sol mil cierto dan términos propio. Programa elecciones pese.\nPosibilidad existen solamente productos personal jefe.\nEstaba solamente sectores clase.\nPablo teatro recursos entonces. Madre adelante después pueda estructura dentro.",
+        "fecha_publicacion": "2026-10-26T14:07:21.110Z",
+        "autor": 10,
+        "grupo": 9,
+        "juego": 9
+    }
+},
+{
+    "model": "core.noticia",
+    "pk": 10,
+    "fields": {
+        "titulo": "Fácil tipo veces fuerte derechos hubo.",
+        "contenido": "Tipos luis domingo pesar. Oficial hombre lado chile sabía.\nControl hacia quienes duda. Jefe actual son necesario unión.\nLargo paz adelante justicia primero texto. Tenían juez alguna importante prueba. Entonces lugar compañía primero estructura español arriba. Pública parís muchos.",
+        "fecha_publicacion": "2026-10-26T14:07:21.111Z",
+        "autor": 11,
+        "grupo": 10,
+        "juego": 10
+    }
+},
+{
+    "model": "core.comentario",
+    "pk": 1,
+    "fields": {
+        "contenido": "Trabajo tierra barcelona mitad.",
+        "fecha": "2026-10-26T14:07:21.111Z",
+        "usuario": 2,
+        "noticia": 1
+    }
+},
+{
+    "model": "core.comentario",
+    "pk": 2,
+    "fields": {
+        "contenido": "Producción educación imagen universidad teoría mesa.",
+        "fecha": "2026-10-26T14:07:21.111Z",
+        "usuario": 3,
+        "noticia": 2
+    }
+},
+{
+    "model": "core.comentario",
+    "pk": 3,
+    "fields": {
+        "contenido": "Llevar día encima mano tu.",
+        "fecha": "2026-10-26T14:07:21.112Z",
+        "usuario": 4,
+        "noticia": 3
+    }
+},
+{
+    "model": "core.comentario",
+    "pk": 4,
+    "fields": {
+        "contenido": "Estilo tenían fuerzas mercado.",
+        "fecha": "2026-10-26T14:07:21.112Z",
+        "usuario": 5,
+        "noticia": 4
+    }
+},
+{
+    "model": "core.comentario",
+    "pk": 5,
+    "fields": {
+        "contenido": "Negro carrera alrededor año personas las.",
+        "fecha": "2026-10-26T14:07:21.112Z",
+        "usuario": 6,
+        "noticia": 5
+    }
+},
+{
+    "model": "core.comentario",
+    "pk": 6,
+    "fields": {
+        "contenido": "Último serie acción.",
+        "fecha": "2026-10-26T14:07:21.112Z",
+        "usuario": 7,
+        "noticia": 6
+    }
+},
+{
+    "model": "core.comentario",
+    "pk": 7,
+    "fields": {
+        "contenido": "Pese pesetas es pasa acto seguir.",
+        "fecha": "2026-10-26T14:07:21.113Z",
+        "usuario": 8,
+        "noticia": 7
+    }
+},
+{
+    "model": "core.comentario",
+    "pk": 8,
+    "fields": {
+        "contenido": "Acción económica hijos pública actual causa.",
+        "fecha": "2026-10-26T14:07:21.113Z",
+        "usuario": 9,
+        "noticia": 8
+    }
+},
+{
+    "model": "core.comentario",
+    "pk": 9,
+    "fields": {
+        "contenido": "Hacer juego sociales.",
+        "fecha": "2026-10-26T14:07:21.113Z",
+        "usuario": 10,
+        "noticia": 9
+    }
+},
+{
+    "model": "core.comentario",
+    "pk": 10,
+    "fields": {
+        "contenido": "Española junto zona punto artículo civil.",
+        "fecha": "2026-10-26T14:07:21.113Z",
+        "usuario": 11,
+        "noticia": 10
+    }
+},
+{
+    "model": "core.reaccion",
+    "pk": 1,
+    "fields": {
+        "tipo": "no_me_gusta",
+        "fecha": "2026-10-26T14:07:21.114Z",
+        "usuario": 2,
+        "noticia": 1
+    }
+},
+{
+    "model": "core.reaccion",
+    "pk": 2,
+    "fields": {
+        "tipo": "no_me_gusta",
+        "fecha": "2026-10-26T14:07:21.114Z",
+        "usuario": 3,
+        "noticia": 2
+    }
+},
+{
+    "model": "core.reaccion",
+    "pk": 3,
+    "fields": {
+        "tipo": "no_me_gusta",
+        "fecha": "2026-10-26T14:07:21.114Z",
+        "usuario": 4,
+        "noticia": 3
+    }
+},
+{
+    "model": "core.reaccion",
+    "pk": 4,
+    "fields": {
+        "tipo": "me_gusta",
+        "fecha": "2026-10-26T14:07:21.114Z",
+        "usuario": 5,
+        "noticia": 4
+    }
+},
+{
+    "model": "core.reaccion",
+    "pk": 5,
+    "fields": {
+        "tipo": "no_me_gusta",
+        "fecha": "2026-10-26T14:07:21.115Z",
+        "usuario": 6,
+        "noticia": 5
+    }
+},
+{
+    "model": "core.reaccion",
+    "pk": 6,
+    "fields": {
+        "tipo": "me_gusta",
+        "fecha": "2026-10-26T14:07:21.115Z",
+        "usuario": 7,
+        "noticia": 6
+    }
+},
+{
+    "model": "core.reaccion",
+    "pk": 7,
+    "fields": {
+        "tipo": "no_me_gusta",
+        "fecha": "2026-10-26T14:07:21.115Z",
+        "usuario": 8,
+        "noticia": 7
+    }
+},
+{
+    "model": "core.reaccion",
+    "pk": 8,
+    "fields": {
+        "tipo": "no_me_gusta",
+        "fecha": "2026-10-26T14:07:21.115Z",
+        "usuario": 9,
+        "noticia": 8
+    }
+},
+{
+    "model": "core.reaccion",
+    "pk": 9,
+    "fields": {
+        "tipo": "no_me_gusta",
+        "fecha": "2026-10-26T14:07:21.115Z",
+        "usuario": 10,
+        "noticia": 9
+    }
+},
+{
+    "model": "core.reaccion",
+    "pk": 10,
+    "fields": {
+        "tipo": "no_me_gusta",
+        "fecha": "2026-10-26T14:07:21.115Z",
+        "usuario": 11,
+        "noticia": 10
+    }
+},
+{
+    "model": "core.usuariojuego",
+    "pk": 1,
+    "fields": {
+        "usuario": 2,
+        "juego": 1,
+        "horas_jugadas": 392.0,
+        "favorito": true,
+        "fecha_inicio": null
+    }
+},
+{
+    "model": "core.usuariojuego",
+    "pk": 2,
+    "fields": {
+        "usuario": 3,
+        "juego": 2,
+        "horas_jugadas": 245.0,
+        "favorito": false,
+        "fecha_inicio": null
+    }
+},
+{
+    "model": "core.usuariojuego",
+    "pk": 3,
+    "fields": {
+        "usuario": 4,
+        "juego": 3,
+        "horas_jugadas": 411.0,
+        "favorito": true,
+        "fecha_inicio": null
+    }
+},
+{
+    "model": "core.usuariojuego",
+    "pk": 4,
+    "fields": {
+        "usuario": 5,
+        "juego": 4,
+        "horas_jugadas": 8.0,
+        "favorito": false,
+        "fecha_inicio": null
+    }
+},
+{
+    "model": "core.usuariojuego",
+    "pk": 5,
+    "fields": {
+        "usuario": 6,
+        "juego": 5,
+        "horas_jugadas": 307.0,
+        "favorito": true,
+        "fecha_inicio": null
+    }
+},
+{
+    "model": "core.usuariojuego",
+    "pk": 6,
+    "fields": {
+        "usuario": 7,
+        "juego": 6,
+        "horas_jugadas": 199.0,
+        "favorito": false,
+        "fecha_inicio": null
+    }
+},
+{
+    "model": "core.usuariojuego",
+    "pk": 7,
+    "fields": {
+        "usuario": 8,
+        "juego": 7,
+        "horas_jugadas": 210.0,
+        "favorito": true,
+        "fecha_inicio": null
+    }
+},
+{
+    "model": "core.usuariojuego",
+    "pk": 8,
+    "fields": {
+        "usuario": 9,
+        "juego": 8,
+        "horas_jugadas": 388.0,
+        "favorito": true,
+        "fecha_inicio": null
+    }
+},
+{
+    "model": "core.usuariojuego",
+    "pk": 9,
+    "fields": {
+        "usuario": 10,
+        "juego": 9,
+        "horas_jugadas": 179.0,
+        "favorito": false,
+        "fecha_inicio": null
+    }
+},
+{
+    "model": "core.usuariojuego",
+    "pk": 10,
+    "fields": {
+        "usuario": 11,
+        "juego": 10,
+        "horas_jugadas": 3.0,
+        "favorito": true,
+        "fecha_inicio": null
+    }
+},
+{
+    "model": "core.chat",
+    "pk": 1,
+    "fields": {
+        "tipo": "privado",
+        "fecha_creacion": "2026-10-26T14:07:21.118Z",
+        "nombre": "Chat 1"
+    }
+},
+{
+    "model": "core.chat",
+    "pk": 2,
+    "fields": {
+        "tipo": "privado",
+        "fecha_creacion": "2026-10-26T14:07:21.118Z",
+        "nombre": "Chat 2"
+    }
+},
+{
+    "model": "core.chat",
+    "pk": 3,
+    "fields": {
+        "tipo": "privado",
+        "fecha_creacion": "2026-10-26T14:07:21.118Z",
+        "nombre": "Chat 3"
+    }
+},
+{
+    "model": "core.chat",
+    "pk": 4,
+    "fields": {
+        "tipo": "privado",
+        "fecha_creacion": "2026-10-26T14:07:21.118Z",
+        "nombre": "Chat 4"
+    }
+},
+{
+    "model": "core.chat",
+    "pk": 5,
+    "fields": {
+        "tipo": "privado",
+        "fecha_creacion": "2026-10-26T14:07:21.119Z",
+        "nombre": "Chat 5"
+    }
+},
+{
+    "model": "core.chat",
+    "pk": 6,
+    "fields": {
+        "tipo": "privado",
+        "fecha_creacion": "2026-10-26T14:07:21.119Z",
+        "nombre": "Chat 6"
+    }
+},
+{
+    "model": "core.chat",
+    "pk": 7,
+    "fields": {
+        "tipo": "privado",
+        "fecha_creacion": "2026-10-26T14:07:21.119Z",
+        "nombre": "Chat 7"
+    }
+},
+{
+    "model": "core.chat",
+    "pk": 8,
+    "fields": {
+        "tipo": "privado",
+        "fecha_creacion": "2026-10-26T14:07:21.119Z",
+        "nombre": "Chat 8"
+    }
+},
+{
+    "model": "core.chat",
+    "pk": 9,
+    "fields": {
+        "tipo": "privado",
+        "fecha_creacion": "2026-10-26T14:07:21.119Z",
+        "nombre": "Chat 9"
+    }
+},
+{
+    "model": "core.chat",
+    "pk": 10,
+    "fields": {
+        "tipo": "privado",
+        "fecha_creacion": "2026-10-26T14:07:21.119Z",
+        "nombre": "Chat 10"
+    }
+},
+{
+    "model": "core.participantechat",
+    "pk": 1,
+    "fields": {
+        "usuario": 2,
+        "chat": 1,
+        "fecha_union": "2026-10-26T14:07:21.120Z",
+        "rol": "miembro"
+    }
+},
+{
+    "model": "core.participantechat",
+    "pk": 2,
+    "fields": {
+        "usuario": 3,
+        "chat": 2,
+        "fecha_union": "2026-10-26T14:07:21.120Z",
+        "rol": "miembro"
+    }
+},
+{
+    "model": "core.participantechat",
+    "pk": 3,
+    "fields": {
+        "usuario": 4,
+        "chat": 3,
+        "fecha_union": "2026-10-26T14:07:21.120Z",
+        "rol": "miembro"
+    }
+},
+{
+    "model": "core.participantechat",
+    "pk": 4,
+    "fields": {
+        "usuario": 5,
+        "chat": 4,
+        "fecha_union": "2026-10-26T14:07:21.120Z",
+        "rol": "miembro"
+    }
+},
+{
+    "model": "core.participantechat",
+    "pk": 5,
+    "fields": {
+        "usuario": 6,
+        "chat": 5,
+        "fecha_union": "2026-10-26T14:07:21.120Z",
+        "rol": "miembro"
+    }
+},
+{
+    "model": "core.participantechat",
+    "pk": 6,
+    "fields": {
+        "usuario": 7,
+        "chat": 6,
+        "fecha_union": "2026-10-26T14:07:21.121Z",
+        "rol": "miembro"
+    }
+},
+{
+    "model": "core.participantechat",
+    "pk": 7,
+    "fields": {
+        "usuario": 8,
+        "chat": 7,
+        "fecha_union": "2026-10-26T14:07:21.121Z",
+        "rol": "miembro"
+    }
+},
+{
+    "model": "core.participantechat",
+    "pk": 8,
+    "fields": {
+        "usuario": 9,
+        "chat": 8,
+        "fecha_union": "2026-10-26T14:07:21.121Z",
+        "rol": "miembro"
+    }
+},
+{
+    "model": "core.participantechat",
+    "pk": 9,
+    "fields": {
+        "usuario": 10,
+        "chat": 9,
+        "fecha_union": "2026-10-26T14:07:21.121Z",
+        "rol": "miembro"
+    }
+},
+{
+    "model": "core.participantechat",
+    "pk": 10,
+    "fields": {
+        "usuario": 11,
+        "chat": 10,
+        "fecha_union": "2026-10-26T14:07:21.121Z",
+        "rol": "miembro"
+    }
+},
+{
+    "model": "core.mensaje",
+    "pk": 1,
+    "fields": {
+        "contenido": "Peor falta quién.",
+        "fecha_envio": "2026-10-26T14:07:21.122Z",
+        "autor": 2,
+        "chat": 1
+    }
+},
+{
+    "model": "core.mensaje",
+    "pk": 2,
+    "fields": {
+        "contenido": "Quizá hacía comercio.",
+        "fecha_envio": "2026-10-26T14:07:21.122Z",
+        "autor": 3,
+        "chat": 2
+    }
+},
+{
+    "model": "core.mensaje",
+    "pk": 3,
+    "fields": {
+        "contenido": "Vivir presente distintos argentina animales.",
+        "fecha_envio": "2026-10-26T14:07:21.122Z",
+        "autor": 4,
+        "chat": 3
+    }
+},
+{
+    "model": "core.mensaje",
+    "pk": 4,
+    "fields": {
+        "contenido": "Mayoría estructura todo distintos pesar.",
+        "fecha_envio": "2026-10-26T14:07:21.123Z",
+        "autor": 5,
+        "chat": 4
+    }
+},
+{
+    "model": "core.mensaje",
+    "pk": 5,
+    "fields": {
+        "contenido": "Efectos guerra poder mesa gracias respecto.",
+        "fecha_envio": "2026-10-26T14:07:21.123Z",
+        "autor": 6,
+        "chat": 5
+    }
+},
+{
+    "model": "core.mensaje",
+    "pk": 6,
+    "fields": {
+        "contenido": "Sola bastante bastante vida acto oposición hora.",
+        "fecha_envio": "2026-10-26T14:07:21.123Z",
+        "autor": 7,
+        "chat": 6
+    }
+},
+{
+    "model": "core.mensaje",
+    "pk": 7,
+    "fields": {
+        "contenido": "Saber maría radio condiciones paciente.",
+        "fecha_envio": "2026-10-26T14:07:21.123Z",
+        "autor": 8,
+        "chat": 7
+    }
+},
+{
+    "model": "core.mensaje",
+    "pk": 8,
+    "fields": {
+        "contenido": "Aspecto sociales atrás arriba último buenos aunque allí.",
+        "fecha_envio": "2026-10-26T14:07:21.123Z",
+        "autor": 9,
+        "chat": 8
+    }
+},
+{
+    "model": "core.mensaje",
+    "pk": 9,
+    "fields": {
+        "contenido": "Siguientes interés acerca las da.",
+        "fecha_envio": "2026-10-26T14:07:21.124Z",
+        "autor": 10,
+        "chat": 9
+    }
+},
+{
+    "model": "core.mensaje",
+    "pk": 10,
+    "fields": {
+        "contenido": "Reunión marcha operación viaje u oposición capital.",
+        "fecha_envio": "2026-10-26T14:07:21.124Z",
+        "autor": 11,
+        "chat": 10
+    }
+},
+{
+    "model": "core.notificacion",
+    "pk": 1,
+    "fields": {
+        "tipo": "comentario",
+        "mensaje": "Baja carrera expresión niños.",
+        "fecha": "2026-10-26T14:07:21.124Z",
+        "usuario": 2,
+        "leida": false
+    }
+},
+{
+    "model": "core.notificacion",
+    "pk": 2,
+    "fields": {
+        "tipo": "comentario",
+        "mensaje": "Políticos humanos contra región economía.",
+        "fecha": "2026-10-26T14:07:21.125Z",
+        "usuario": 3,
+        "leida": false
+    }
+},
+{
+    "model": "core.notificacion",
+    "pk": 3,
+    "fields": {
+        "tipo": "comentario",
+        "mensaje": "Análisis esta igual etc ni.",
+        "fecha": "2026-10-26T14:07:21.125Z",
+        "usuario": 4,
+        "leida": false
+    }
+},
+{
+    "model": "core.notificacion",
+    "pk": 4,
+    "fields": {
+        "tipo": "comentario",
+        "mensaje": "Mayo ésta ley política tan modo ellas día.",
+        "fecha": "2026-10-26T14:07:21.125Z",
+        "usuario": 5,
+        "leida": false
+    }
+},
+{
+    "model": "core.notificacion",
+    "pk": 5,
+    "fields": {
+        "tipo": "comentario",
+        "mensaje": "Problemas méxico allá d silencio momentos cuatro.",
+        "fecha": "2026-10-26T14:07:21.125Z",
+        "usuario": 6,
+        "leida": false
+    }
+},
+{
+    "model": "core.notificacion",
+    "pk": 6,
+    "fields": {
+        "tipo": "comentario",
+        "mensaje": "María antes proyectos.",
+        "fecha": "2026-10-26T14:07:21.126Z",
+        "usuario": 7,
+        "leida": false
+    }
+},
+{
+    "model": "core.notificacion",
+    "pk": 7,
+    "fields": {
+        "tipo": "comentario",
+        "mensaje": "Presenta le habían después artículo.",
+        "fecha": "2026-10-26T14:07:21.126Z",
+        "usuario": 8,
+        "leida": false
+    }
+},
+{
+    "model": "core.notificacion",
+    "pk": 8,
+    "fields": {
+        "tipo": "comentario",
+        "mensaje": "Club pasa dolor ya tienen se producto.",
+        "fecha": "2026-10-26T14:07:21.126Z",
+        "usuario": 9,
+        "leida": false
+    }
+},
+{
+    "model": "core.notificacion",
+    "pk": 9,
+    "fields": {
+        "tipo": "comentario",
+        "mensaje": "Luego noviembre expresión claro tenían defensa experiencia.",
+        "fecha": "2026-10-26T14:07:21.126Z",
+        "usuario": 10,
+        "leida": false
+    }
+},
+{
+    "model": "core.notificacion",
+    "pk": 10,
+    "fields": {
+        "tipo": "comentario",
+        "mensaje": "Base han idea calle.",
+        "fecha": "2026-10-26T14:07:21.127Z",
+        "usuario": 11,
+        "leida": false
+    }
+}
+]
