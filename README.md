@@ -1,5 +1,5 @@
-# Proyecto_2_DAW
-Proyecto segundo de DAW. Grupo Alejandro Fernández Linares y José Manuel Fernández Linares
+Aplicación Web Parte I
+Grupo Alejandro Fernández Linares y José Manuel Fernández Linares
 # GameLoop — Modelos y base de datos
 
 ## 1. Modelos de la aplicación
