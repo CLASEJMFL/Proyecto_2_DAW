@@ -11,6 +11,39 @@ class Usuario(AbstractUser):
         return self.username
 
 
+class PerfilUsuario(models.Model):
+    usuario = models.OneToOneField(
+        Usuario, on_delete=models.CASCADE, related_name='perfil'
+    )
+    nombre_visible = models.CharField(max_length=100, blank=True)
+    biografia = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.usuario.username
+
+
+class ConfiguracionUsuario(models.Model):
+    usuario = models.OneToOneField(
+        Usuario, on_delete=models.CASCADE, related_name='configuracion'
+    )
+    tema_oscuro = models.BooleanField(default=False)
+    notificaciones_activadas = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.usuario.username
+
+
+class EstadisticasUsuario(models.Model):
+    usuario = models.OneToOneField(
+        Usuario, on_delete=models.CASCADE, related_name='estadisticas'
+    )
+    juegos_favoritos = models.PositiveIntegerField(default=0)
+    horas_totales = models.FloatField(default=0)
+
+    def __str__(self):
+        return self.usuario.username
+
+
 class Amistad(models.Model):
     usuario_origen = models.ForeignKey(
         Usuario, on_delete=models.CASCADE,
@@ -25,6 +58,7 @@ class Amistad(models.Model):
     fecha_aceptacion = models.DateTimeField(null=True, blank=True)
 
 
+
 class Grupo(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField(blank=True)
@@ -35,8 +69,13 @@ class Grupo(models.Model):
         Usuario, through='Pertenencia', related_name='grupos'
     )
 
+    juegos = models.ManyToManyField(
+        'Juego', blank=True, related_name='grupos'
+    )
+
     def __str__(self):
         return self.nombre
+
 
 
 class Pertenencia(models.Model):
