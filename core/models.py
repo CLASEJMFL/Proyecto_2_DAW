@@ -7,40 +7,55 @@ class Usuario(AbstractUser):
     biografia = models.TextField(blank=True)
     fecha_registro = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
+    def _str_(self):
         return self.username
 
 
 class PerfilUsuario(models.Model):
     usuario = models.OneToOneField(
-        Usuario, on_delete=models.CASCADE, related_name='perfil'
+        Usuario,
+        on_delete=models.CASCADE,
+        related_name='perfil'
     )
     nombre_visible = models.CharField(max_length=100, blank=True)
     biografia = models.TextField(blank=True)
+    fecha_nacimiento = models.DateField(null=True, blank=True)
+    web = models.URLField(blank=True)
 
-    def __str__(self):
+    def _str_(self):
         return self.usuario.username
 
 
 class ConfiguracionUsuario(models.Model):
     usuario = models.OneToOneField(
-        Usuario, on_delete=models.CASCADE, related_name='configuracion'
+        Usuario,
+        on_delete=models.CASCADE,
+        related_name='configuracion'
     )
     tema_oscuro = models.BooleanField(default=False)
     notificaciones_activadas = models.BooleanField(default=True)
+    idioma = models.CharField(max_length=10, default='es')
 
-    def __str__(self):
+    def _str_(self):
         return self.usuario.username
 
 
 class EstadisticasUsuario(models.Model):
     usuario = models.OneToOneField(
-        Usuario, on_delete=models.CASCADE, related_name='estadisticas'
+        Usuario,
+        on_delete=models.CASCADE,
+        related_name='estadisticas'
     )
     juegos_favoritos = models.PositiveIntegerField(default=0)
     horas_totales = models.FloatField(default=0)
+    nivel = models.PositiveSmallIntegerField(default=1)
+    puntuacion_media = models.DecimalField(
+        max_digits=4,
+        decimal_places=2,
+        default=0
+    )
 
-    def __str__(self):
+    def _str_(self):
         return self.usuario.username
 
 
@@ -73,7 +88,7 @@ class Grupo(models.Model):
         'Juego', blank=True, related_name='grupos'
     )
 
-    def __str__(self):
+    def _str_(self):
         return self.nombre
 
 
@@ -93,7 +108,7 @@ class Juego(models.Model):
     fecha_lanzamiento = models.DateField(null=True, blank=True)
     plataformas = models.CharField(max_length=200, blank=True)
 
-    def __str__(self):
+    def _str_(self):
         return self.nombre
 
 
@@ -107,7 +122,7 @@ class Noticia(models.Model):
     )
     juego = models.ForeignKey(Juego, on_delete=models.CASCADE)
 
-    def __str__(self):
+    def _str_(self):
         return self.titulo
 
 
@@ -119,7 +134,7 @@ class Comentario(models.Model):
         Noticia, on_delete=models.CASCADE, related_name='comentarios'
     )
 
-    def __str__(self):
+    def _str_(self):
         return self.contenido[:50]
 
 
@@ -171,7 +186,7 @@ class Mensaje(models.Model):
     autor = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     chat = models.ForeignKey(Chat, on_delete=models.CASCADE)
 
-    def __str__(self):
+    def _str_(self):
         return self.contenido[:50]
 
 
