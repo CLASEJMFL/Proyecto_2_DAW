@@ -30,7 +30,7 @@ fake = Faker("es_ES")
 
 
 class Command(BaseCommand):
-    help = "Genera 10 registros de prueba para cada modelo de GameLoop."
+    help = "Genera 10 registros de prueba por modelo de GameLoop por ejecución."
 
     @transaction.atomic
     def handle(self, *args, **options):
@@ -171,7 +171,7 @@ class Command(BaseCommand):
         for i in range(10):
             reacciones.append(
                 Reaccion.objects.create(
-                    tipo=random.choice(["me_gusta", "me_encanta", "no_me_gusta"]),
+                    tipo=random.choice(["me_gusta", "no_me_gusta"]),
                     fecha=timezone.now() - timedelta(days=random.randint(0, 90)),
                     usuario=usuarios[i],
                     noticia=noticias[i],
@@ -193,7 +193,7 @@ class Command(BaseCommand):
         for i in range(10):
             chats.append(
                 Chat.objects.create(
-                    tipo=random.choice(["privado", "grupo"]),
+                    tipo=random.choice(["privado", "grupal"]),
                     fecha_creacion=timezone.now()
                     - timedelta(days=random.randint(0, 180)),
                     nombre=f"Chat {fake.word().capitalize()} {i + 1}",
@@ -211,17 +211,6 @@ class Command(BaseCommand):
                     rol=random.choice(["administrador", "miembro"]),
                 )
             )
-            # Añade un segundo participante para dar contenido a cada chat.
-            segundo = usuarios[(i + 1) % len(usuarios)]
-            if segundo != usuarios[i]:
-                ParticipanteChat.objects.get_or_create(
-                    usuario=segundo,
-                    chat=chat,
-                    defaults={
-                        "fecha_union": timezone.now(),
-                        "rol": "miembro",
-                    },
-                )
 
         mensajes = [
             Mensaje.objects.create(
@@ -236,7 +225,7 @@ class Command(BaseCommand):
 
         notificaciones = [
             Notificacion.objects.create(
-                tipo=random.choice(["amistad", "mensaje", "noticia", "sistema"]),
+                tipo=random.choice(["amistad", "comentario", "mensaje", "grupo"]),
                 mensaje=fake.sentence(nb_words=10),
                 fecha=timezone.now() - timedelta(days=random.randint(0, 60)),
                 usuario=usuarios[i],
@@ -247,7 +236,7 @@ class Command(BaseCommand):
 
         self.stdout.write(
             self.style.SUCCESS(
-                "Seed completado. Se han creado registros de prueba para los modelos de GameLoop."
+                "Seed completado: se han generado 10 registros por modelo en esta ejecución."
             )
         )
         self.stdout.write(
