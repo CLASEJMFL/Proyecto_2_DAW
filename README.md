@@ -17,10 +17,6 @@ El objetivo del proyecto es poner en práctica el desarrollo de aplicaciones web
 
 ## 3. Repositorio de GitHub
 
-El código fuente del proyecto se encuentra en el siguiente repositorio:
-
-[Proyecto_2_DAW — GitHub](https://github.com/CLASEJMFL/Proyecto_2_DAW)
-
 Autores:
 
 - Alejandro Fernández Linares
