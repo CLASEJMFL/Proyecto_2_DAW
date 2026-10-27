@@ -343,17 +343,8 @@ Los tres últimos son campos relacionales; los diez primeros son tipos de campos
 
 ## 8. Diagrama entidad-relación
 
-El diagrama entidad-relación debe representar los 16 modelos y sus relaciones.
-
-Se recomienda guardar el diagrama como un archivo del propio repositorio, por ejemplo `docs/diagrama-er.png`.
-
-Una vez añadido, se puede mostrar en este README con:
-
-```markdown
-![Diagrama entidad-relación de GameLoop](docs/diagrama-er.png)
-```
-
-El diagrama debe reflejar las tres relaciones uno a uno, las relaciones mediante claves foráneas y las relaciones muchos a muchos, incluidas sus tablas intermedias.
+<img width="1085" height="789" alt="modelo entidad relacion" src="https://github.com/user-attachments/assets/b4fe0312-9f53-4b35-85ca-c85609affbd4" />
+<img width="1536" height="1024" alt="modelo relacional" src="https://github.com/user-attachments/assets/e3abb246-dce2-4e7c-b1a7-fe00ea999493" />
 
 ## 9. Generación de datos de prueba
 
