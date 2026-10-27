@@ -1,675 +1,327 @@
-# GameLoop — Red social de videojuegos
+ 
+# GameLoop — Documentación del proyecto
 
-**Asignatura:** Desarrollo Web en Entorno Servidor (DWES)  
-**Proyecto:** Aplicación web — Inicio y modelos  
-**Autores:** Alejandro Fernández Linares y José Manuel Fernández Linares  
-**Repositorio GitHub:** https://github.com/CLASEJMFL/Proyecto_2_DAW
+## 1. Descripción del proyecto
 
----
+**GameLoop** es una aplicación web desarrollada con Django que permite crear una comunidad de usuarios relacionada con los videojuegos. La aplicación incluye funcionalidades para gestionar perfiles, amistades, grupos, juegos, noticias, comentarios, reacciones, chats, mensajes y notificaciones.
 
-## Índice
+El objetivo del proyecto es poner en práctica el desarrollo de aplicaciones web con Django, el diseño de modelos, las relaciones entre entidades, la generación de datos de prueba y la gestión de copias de seguridad de la base de datos.
 
-1. Descripción de la aplicación web
-2. Repositorio Git y preparación del proyecto Django
-3. Modelos de la aplicación
-4. Relaciones entre los modelos
-5. Tipos de campos y parámetros utilizados
-6. Diagrama entidad-relación
-7. Seeders y generación de datos con Faker
-8. Copias de seguridad mediante fixtures
-9. Comprobación de los requisitos
-10. Explicación del código utilizado
-11. Archivos que no deben subirse a Git
-12. Conclusión
+## 2. Tecnologías utilizadas
 
----
+- **Python 3:** lenguaje de programación utilizado para desarrollar la aplicación.
+- **Django:** framework web empleado para construir la aplicación.
+- **SQLite:** base de datos utilizada por defecto en proyectos Django, salvo que la configuración indique otra.
+- **Faker:** biblioteca utilizada para generar datos ficticios de prueba, si está instalada y configurada en el proyecto.
+- **Git y GitHub:** herramientas para el control de versiones y el almacenamiento del código fuente.
 
-## 1. Descripción de la aplicación web
+## 3. Repositorio de GitHub
 
-### 1.1. ¿En qué consiste GameLoop?
+El código fuente del proyecto se encuentra en el siguiente repositorio:
 
-GameLoop es una aplicación web desarrollada con Django que funciona como una comunidad de usuarios interesados en los videojuegos.
+[Proyecto_2_DAW — GitHub](https://github.com/CLASEJMFL/Proyecto_2_DAW)
 
-La aplicación permite que los usuarios tengan un perfil personal, configuren sus preferencias, registren sus videojuegos favoritos, establezcan amistades con otros usuarios, participen en grupos, consulten noticias, publiquen comentarios, reaccionen a las noticias, participen en chats y reciban notificaciones.
+Autores:
 
-La aplicación está diseñada para organizar toda esta información mediante una base de datos relacional. Para ello, se utilizan modelos de Django que representan las distintas entidades y relaciones de la plataforma.
+- Alejandro Fernández Linares
+- José Manuel Fernández Linares
 
-Además, el proyecto incorpora la generación de datos ficticios con Faker, la administración de los registros mediante Django Admin y la exportación e importación de datos mediante fixtures.
+## 4. Estructura del proyecto
 
-La idea del proyecto también contempla la posibilidad de publicar contenido en redes sociales externas. Esta funcionalidad requeriría implementar las integraciones correspondientes con las API oficiales y los permisos necesarios.
-
-### 1.2. Objetivos del proyecto
-
-Los objetivos principales son:
-
-- Desarrollar una aplicación utilizando Django y Python.
-- Diseñar una base de datos relacional.
-- Crear modelos con diferentes tipos de campos.
-- Implementar relaciones uno a uno, uno a muchos y muchos a muchos.
-- Utilizar tablas intermedias con atributos adicionales.
-- Generar datos de prueba mediante un comando personalizado y Faker.
-- Crear copias de seguridad mediante fixtures.
-- Documentar el código y los modelos.
-- Utilizar Git y GitHub para gestionar el proyecto.
-
-## 2. Repositorio Git y preparación del proyecto Django
-
-### 2.1. Repositorio
-
-El proyecto está alojado en GitHub:
-
-https://github.com/CLASEJMFL/Proyecto_2_DAW
-
-Git permite controlar las modificaciones realizadas en el código, recuperar versiones anteriores y trabajar con distintas ramas.
-
-El enunciado exige disponer de estas tres ramas:
-
-- `Configuracion_inicial`: preparación inicial del proyecto Django.
-- `Modelos`: desarrollo de los modelos y las relaciones de la base de datos.
-- `Backups`: trabajo relacionado con los datos de prueba y las copias de seguridad.
-
-Para consultar las ramas disponibles se utiliza:
-
-```bash
-git branch -a
-```
-
-La existencia de las tres ramas debe comprobarse en el repositorio. No basta con que aparezcan mencionadas en este documento.
-
-### 2.2. Tecnologías utilizadas
-
-- **Python:** lenguaje de programación utilizado para desarrollar la aplicación.
-- **Django:** framework utilizado para organizar el proyecto y gestionar los modelos.
-- **SQLite:** base de datos configurada por defecto en el proyecto.
-- **Django ORM:** sistema que permite trabajar con la base de datos mediante objetos Python.
-- **Faker:** biblioteca utilizada para generar datos ficticios.
-- **Git:** sistema de control de versiones.
-- **GitHub:** plataforma de alojamiento del repositorio.
-
-### 2.3. Estructura del proyecto
-
-La estructura principal es la siguiente:
+El proyecto está organizado siguiendo la estructura habitual de Django.
 
 ```text
 Proyecto_2_DAW/
-├── GameLoop/
-│   ├── __init__.py
-│   ├── settings.py
-│   ├── urls.py
-│   ├── asgi.py
-│   └── wsgi.py
-├── core/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── tests.py
-│   ├── migrations/
-│   └── management/
-│       └── commands/
-│           └── seed.py
 ├── manage.py
 ├── requirements.txt
 ├── backup.json
-└── README.md
+├── .gitignore
+├── core/
+│   ├── models.py
+│   ├── admin.py
+│   └── management/
+│       └── commands/
+│           └── seed.py
+└── ...
 ```
 
-Los archivos principales son:
+Descripción de los elementos principales:
 
-- `settings.py`: contiene la configuración general del proyecto Django.
-- `urls.py`: contiene la configuración de las rutas.
-- `models.py`: define los modelos de la base de datos.
-- `admin.py`: registra los modelos que se gestionan desde el administrador.
-- `migrations/`: contiene los cambios de estructura de la base de datos.
-- `seed.py`: contiene el comando personalizado para generar datos de prueba.
-- `manage.py`: permite ejecutar los comandos de administración de Django.
-- `requirements.txt`: contiene las dependencias del proyecto.
-- `backup.json`: contiene la exportación de datos mediante fixtures.
+- `manage.py`: permite ejecutar comandos de administración de Django.
+- `requirements.txt`: contiene las dependencias necesarias para ejecutar el proyecto.
+- `backup.json`: archivo destinado a almacenar datos exportados de la base de datos.
+- `.gitignore`: indica qué archivos y carpetas no deben incluirse en el repositorio.
+- `core/models.py`: contiene los modelos y las relaciones de la aplicación.
+- `core/admin.py`: permite configurar la administración de los modelos desde Django Admin.
+- `core/management/commands/seed.py`: contiene el comando personalizado para generar datos de prueba.
 
-### 2.4. Instalación y ejecución
+## 5. Modelos de la aplicación
 
-Para descargar el proyecto:
+La aplicación contiene 16 modelos principales, definidos en `core/models.py`.
 
-```bash
-git clone https://github.com/CLASEJMFL/Proyecto_2_DAW.git
-cd Proyecto_2_DAW
-```
+### 5.1. Usuario
 
-Para crear un entorno virtual en Windows:
+Representa a los usuarios registrados en la aplicación.
 
-```powershell
-py -m venv .venv
-.\.venv\Scripts\Activate.ps1
-```
+Hereda de `AbstractUser`, por lo que aprovecha el sistema de autenticación de Django y sus campos habituales, como el nombre de usuario, el correo electrónico y la contraseña.
 
-Para instalar las dependencias:
+### 5.2. PerfilUsuario
 
-```bash
-pip install -r requirements.txt
-pip install Faker
-```
+Almacena información adicional del perfil de cada usuario, separada de los datos de autenticación.
 
-La biblioteca Faker debe estar incluida también en `requirements.txt` para que la instalación del proyecto sea reproducible.
+Mantiene una relación uno a uno con `Usuario`.
 
-Para aplicar las migraciones:
+### 5.3. ConfiguracionUsuario
 
-```bash
-python manage.py migrate
-```
+Almacena las preferencias y opciones de configuración de cada usuario.
 
-Para crear un superusuario:
+Mantiene una relación uno a uno con `Usuario`.
 
-```bash
-python manage.py createsuperuser
-```
+### 5.4. EstadisticasUsuario
 
-Para iniciar el servidor de desarrollo:
+Permite guardar estadísticas asociadas a cada usuario.
 
-```bash
-python manage.py runserver
-```
+Mantiene una relación uno a uno con `Usuario`.
 
-El servidor estará disponible normalmente en `http://127.0.0.1:8000/` y el panel de administración en `http://127.0.0.1:8000/admin/`.
+### 5.5. Amistad
 
----
+Representa las relaciones de amistad entre usuarios mediante referencias a los usuarios implicados.
 
-## 3. Modelos de la aplicación
+### 5.6. Grupo
 
-Los modelos se encuentran en `core/models.py`. Cada modelo representa una entidad de la aplicación y define los campos que permiten almacenar sus datos.
+Representa grupos o comunidades dentro de GameLoop. Permite relacionar usuarios con grupos y asociar juegos a estos.
 
-El proyecto contiene **16 modelos definidos**. El modelo `Usuario` hereda de `AbstractUser`, por lo que también dispone de los campos de autenticación que proporciona Django.
+### 5.7. Pertenencia
 
-Los campos de relación se explican en sus respectivos apartados. Cuando un campo tiene un parámetro especial, se indica su función.
+Representa la pertenencia de un usuario a un grupo. Actúa como modelo intermedio entre `Usuario` y `Grupo`.
 
-### 3.1. Usuario
+### 5.8. Juego
 
-Representa a los usuarios registrados en GameLoop.
+Representa los videojuegos registrados en la aplicación.
 
-Hereda de `AbstractUser`, una clase de Django que proporciona campos y funcionalidades de autenticación.
+### 5.9. Noticia
 
-Campos propios:
+Almacena noticias relacionadas con la comunidad y los videojuegos.
 
-- `foto_perfil`: campo `URLField` que almacena la dirección web de la imagen del perfil. Utiliza `blank=True`.
-- `biografia`: campo `TextField` que almacena la descripción personal. Utiliza `blank=True`.
-- `fecha_registro`: campo `DateTimeField` que guarda automáticamente la fecha y hora de creación mediante `auto_now_add=True`.
+### 5.10. Comentario
 
-El método `__str__` devuelve el nombre de usuario, lo que facilita su identificación en el administrador.
+Permite registrar comentarios asociados al contenido correspondiente y a los usuarios que los publican.
 
-Además, hereda campos como `username`, `password`, `first_name`, `last_name` y `email` de Django.
+### 5.11. Reaccion
 
-### 3.2. PerfilUsuario
+Representa las reacciones de los usuarios ante el contenido de la aplicación.
 
-Almacena información adicional sobre el perfil de cada usuario.
+### 5.12. UsuarioJuego
 
-- `usuario`: `OneToOneField` que relaciona el perfil con un usuario. Utiliza `on_delete=models.CASCADE` y `related_name="perfil"`.
-- `nombre_visible`: `CharField` con una longitud máxima de 100 caracteres. Utiliza `blank=True`.
-- `biografia`: `TextField` que permite almacenar una descripción y utiliza `blank=True`.
-- `fecha_nacimiento`: `DateField` que almacena la fecha de nacimiento. Utiliza `null=True` y `blank=True`.
-- `web`: `URLField` que almacena la página personal y utiliza `blank=True`.
+Relaciona a los usuarios con los videojuegos y permite almacenar información adicional sobre esa relación.
 
-Cada usuario puede tener como máximo un perfil asociado.
+### 5.13. Chat
 
-### 3.3. ConfiguracionUsuario
+Representa las conversaciones entre usuarios.
 
-Almacena las preferencias de configuración de cada usuario.
+### 5.14. ParticipanteChat
 
-- `usuario`: `OneToOneField` que relaciona la configuración con un usuario. Utiliza `on_delete=models.CASCADE` y `related_name="configuracion"`.
-- `tema_oscuro`: `BooleanField` que indica si está activado el tema oscuro. Tiene `default=False`.
-- `notificaciones_activadas`: `BooleanField` que indica si están activadas las notificaciones. Tiene `default=True`.
-- `idioma`: `CharField` con una longitud máxima de 10 caracteres y `default="es"`.
+Es el modelo intermedio que relaciona usuarios con chats.
 
-Este modelo permite mantener las preferencias separadas de los datos generales de la cuenta.
+### 5.15. Mensaje
 
-### 3.4. EstadisticasUsuario
+Almacena los mensajes enviados en las conversaciones.
 
-Almacena estadísticas relacionadas con la actividad de un usuario.
+### 5.16. Notificacion
 
-- `usuario`: `OneToOneField` que relaciona las estadísticas con un usuario. Utiliza `on_delete=models.CASCADE` y `related_name="estadisticas"`.
-- `juegos_favoritos`: `PositiveIntegerField` que almacena el número de juegos favoritos. Tiene `default=0`.
-- `horas_totales`: `FloatField` que almacena las horas totales jugadas. Tiene `default=0`.
-- `nivel`: `PositiveSmallIntegerField` que almacena el nivel del usuario. Tiene `default=1`.
-- `puntuacion_media`: `DecimalField` que almacena una puntuación con cuatro dígitos como máximo y dos decimales. Utiliza `max_digits=4`, `decimal_places=2` y `default=0`.
+Representa las notificaciones generadas para los usuarios.
 
-### 3.5. Amistad
+## 6. Relaciones entre los modelos
 
-Representa una solicitud o relación de amistad entre dos usuarios.
+En Django, las relaciones se definen mediante campos como `ForeignKey`, `OneToOneField` y `ManyToManyField`.
 
-- `usuario_origen`: `ForeignKey` que identifica al usuario que envía la solicitud. Utiliza `on_delete=models.CASCADE` y `related_name="amistades_enviadas"`.
-- `usuario_destino`: `ForeignKey` que identifica al destinatario. Utiliza `on_delete=models.CASCADE` y `related_name="amistades_recibidas"`.
-- `estado`: `CharField` con una longitud máxima de 20 caracteres y `default="pendiente"`.
-- `fecha_solicitud`: `DateTimeField` que registra automáticamente la fecha de creación mediante `auto_now_add=True`.
-- `fecha_aceptacion`: `DateTimeField` que almacena la fecha de aceptación. Utiliza `null=True` y `blank=True`.
+### 6.1. Relaciones uno a uno
 
-Los dos campos de usuario apuntan al mismo modelo, pero representan funciones diferentes: el origen y el destinatario.
+Se utilizan para asociar un único registro con otro.
 
-### 3.6. Grupo
+En el proyecto existen estas relaciones:
 
-Representa un grupo de usuarios que comparten intereses relacionados con videojuegos.
+- `Usuario` — `PerfilUsuario`.
+- `Usuario` — `ConfiguracionUsuario`.
+- `Usuario` — `EstadisticasUsuario`.
 
-- `nombre`: `CharField` con una longitud máxima de 100 caracteres.
-- `descripcion`: `TextField` que permite dejar vacía la descripción mediante `blank=True`.
-- `imagen`: `URLField` que almacena la dirección de la imagen y utiliza `blank=True`.
-- `fecha_creacion`: `DateTimeField` que registra automáticamente la fecha de creación mediante `auto_now_add=True`.
-- `usuarios`: `ManyToManyField` que relaciona los grupos con los usuarios mediante el modelo intermedio `Pertenencia`.
-- `juegos`: `ManyToManyField` que relaciona los grupos con videojuegos y utiliza `blank=True`.
+Estas relaciones permiten separar la información adicional del usuario en diferentes modelos.
 
-Los campos `usuarios` y `juegos` son relaciones y no campos de datos simples.
+### 6.2. Relaciones uno a muchos
 
-### 3.7. Pertenencia
+Se implementan mediante `ForeignKey`.
 
-Es el modelo intermedio que relaciona usuarios con grupos. Permite almacenar información adicional sobre la participación.
+Un registro del modelo relacionado puede estar asociado a varios registros del modelo que contiene la clave foránea. Por ejemplo, un chat puede tener varios mensajes, y un usuario puede estar asociado a diferentes registros de actividad, comentarios o notificaciones, según la definición de cada modelo.
 
-- `usuario`: `ForeignKey` que identifica al usuario.
-- `grupo`: `ForeignKey` que identifica al grupo.
-- `rol`: `CharField` con una longitud máxima de 30 caracteres y `default="miembro"`.
-- `fecha_union`: `DateTimeField` que registra automáticamente la incorporación mediante `auto_now_add=True`.
+### 6.3. Relaciones muchos a muchos
 
-Este modelo permite registrar si un usuario pertenece a un grupo y qué rol desempeña.
+Se implementan mediante `ManyToManyField`.
 
-### 3.8. Juego
+En el proyecto destacan:
 
-Representa un videojuego de la aplicación.
+- **Grupo y Usuario:** la relación se gestiona mediante el modelo intermedio `Pertenencia`.
+- **Chat y Usuario:** la relación se gestiona mediante el modelo intermedio `ParticipanteChat`.
+- **Grupo y Juego:** los grupos pueden relacionarse con varios juegos mediante una relación muchos a muchos.
 
-- `nombre`: `CharField` con una longitud máxima de 100 caracteres.
-- `descripcion`: `TextField` que almacena la descripción y utiliza `blank=True`.
-- `genero`: `CharField` con una longitud máxima de 50 caracteres.
-- `imagen`: `URLField` que almacena la dirección de la imagen y utiliza `blank=True`.
-- `fecha_lanzamiento`: `DateField` que almacena la fecha de lanzamiento. Utiliza `null=True` y `blank=True`.
-- `plataformas`: `CharField` con una longitud máxima de 200 caracteres y `blank=True`.
+Los modelos intermedios permiten representar la relación entre las entidades y almacenar información adicional sobre ella cuando el modelo está diseñado para ello.
 
-### 3.9. Noticia
+## 7. Tipos de campos utilizados
 
-Representa una noticia relacionada con un videojuego.
+Django proporciona distintos tipos de campos para definir los atributos de los modelos.
 
-- `titulo`: `CharField` con una longitud máxima de 200 caracteres.
-- `contenido`: `TextField` que almacena el contenido de la noticia.
-- `fecha_publicacion`: `DateTimeField` que registra automáticamente la fecha de creación mediante `auto_now_add=True`.
-- `autor`: `ForeignKey` que identifica al usuario que escribe la noticia.
-- `grupo`: `ForeignKey` opcional que relaciona la noticia con un grupo. Utiliza `on_delete=models.CASCADE`, `null=True` y `blank=True`.
-- `juego`: `ForeignKey` que relaciona la noticia con un videojuego.
+| Tipo de campo | Utilidad |
+|---|---|
+| `CharField` | Almacena cadenas de texto de longitud limitada. |
+| `TextField` | Almacena textos largos. |
+| `BooleanField` | Almacena valores verdadero o falso. |
+| `PositiveIntegerField` | Almacena números enteros no negativos. |
+| `PositiveSmallIntegerField` | Almacena números enteros pequeños no negativos. |
+| `FloatField` | Almacena números decimales de coma flotante. |
+| `DecimalField` | Almacena valores decimales con precisión definida. |
+| `DateField` | Almacena fechas. |
+| `DateTimeField` | Almacena fechas y horas. |
+| `URLField` | Almacena direcciones URL. |
 
-### 3.10. Comentario
+La elección del campo depende del tipo de información que se necesita almacenar.
 
-Representa un comentario realizado por un usuario en una noticia.
+## 8. Parámetros de los campos
 
-- `contenido`: `TextField` que almacena el texto del comentario.
-- `fecha`: `DateTimeField` que registra automáticamente la fecha de creación mediante `auto_now_add=True`.
-- `usuario`: `ForeignKey` que identifica al autor del comentario.
-- `noticia`: `ForeignKey` que identifica la noticia comentada. Utiliza `on_delete=models.CASCADE` y `related_name="comentarios"`.
+Los campos de Django pueden incluir parámetros para controlar su comportamiento.
 
-El parámetro `related_name` permite acceder a los comentarios de una noticia desde el objeto relacionado.
+| Parámetro | Descripción |
+|---|---|
+| `max_length` | Establece la longitud máxima de un campo de texto. |
+| `blank` | Indica si un campo puede dejarse vacío en la validación de formularios. |
+| `null` | Indica si la base de datos puede almacenar `NULL` en ese campo. |
+| `default` | Define el valor predeterminado del campo. |
+| `auto_now_add` | Asigna automáticamente la fecha y hora de creación. |
+| `on_delete` | Determina qué sucede cuando se elimina el objeto relacionado. |
+| `related_name` | Define el nombre utilizado para acceder a la relación desde el modelo relacionado. |
+| `max_digits` | Establece el número máximo de dígitos de un `DecimalField`. |
+| `decimal_places` | Establece cuántas cifras decimales puede almacenar un `DecimalField`. |
+| `choices` | Define un conjunto de opciones permitidas para un campo. |
+| `through` | Indica el modelo intermedio utilizado en una relación muchos a muchos. |
 
-### 3.11. Reaccion
+Es importante diferenciar `blank` y `null`: el primero afecta a la validación, mientras que el segundo afecta al almacenamiento en la base de datos.
 
-Representa una reacción de un usuario a una noticia.
+## 9. Diagrama de entidades y relaciones
 
-- `tipo`: `CharField` con una longitud máxima de 20 caracteres y `choices=TIPO_CHOICES`.
-- `fecha`: `DateTimeField` que registra automáticamente la fecha de creación.
-- `usuario`: `ForeignKey` que identifica al usuario que realiza la reacción.
-- `noticia`: `ForeignKey` que identifica la noticia que recibe la reacción.
-
-Las opciones definidas en `TIPO_CHOICES` son:
-
-- `me_gusta`: Me gusta.
-- `no_me_gusta`: No me gusta.
-
-El parámetro `choices` restringe los valores permitidos del campo.
-
-### 3.12. UsuarioJuego
-
-Registra la relación entre un usuario y un videojuego, incluyendo datos sobre su actividad.
-
-- `usuario`: `ForeignKey` que identifica al usuario.
-- `juego`: `ForeignKey` que identifica al videojuego.
-- `horas_jugadas`: `FloatField` que almacena las horas dedicadas al juego. Tiene `default=0`.
-- `favorito`: `BooleanField` que indica si es uno de los juegos favoritos. Tiene `default=False`.
-- `fecha_inicio`: `DateField` que almacena la fecha de inicio. Utiliza `null=True` y `blank=True`.
-
-El modelo contiene dos claves foráneas y atributos adicionales sobre la actividad del usuario. Aunque representa una asociación entre usuarios y juegos, actualmente no está configurado como el modelo intermedio explícito de un `ManyToManyField`.
-
-### 3.13. Chat
-
-Representa una conversación entre usuarios.
-
-- `tipo`: `CharField` con una longitud máxima de 10 caracteres y `choices=TIPO_CHOICES`.
-- `fecha_creacion`: `DateTimeField` que registra automáticamente la fecha de creación.
-- `nombre`: `CharField` con una longitud máxima de 100 caracteres y `blank=True`.
-- `participantes`: `ManyToManyField` que relaciona chats y usuarios mediante el modelo intermedio `ParticipanteChat`. Utiliza `related_name="chats"`.
-
-Las opciones de `tipo` son `privado` y `grupal`.
-
-### 3.14. ParticipanteChat
-
-Representa la participación de un usuario en un chat y actúa como modelo intermedio.
-
-- `usuario`: `ForeignKey` que identifica al participante.
-- `chat`: `ForeignKey` que identifica la conversación.
-- `fecha_union`: `DateTimeField` que registra automáticamente la fecha de incorporación.
-- `rol`: `CharField` con una longitud máxima de 30 caracteres y `default="miembro"`.
-
-La tabla intermedia permite guardar el rol y la fecha de incorporación de cada usuario en cada conversación.
-
-### 3.15. Mensaje
-
-Representa un mensaje enviado dentro de un chat.
-
-- `contenido`: `TextField` que almacena el texto del mensaje.
-- `fecha_envio`: `DateTimeField` que registra automáticamente la fecha de creación.
-- `autor`: `ForeignKey` que identifica al usuario que envía el mensaje.
-- `chat`: `ForeignKey` que identifica la conversación en la que se envía.
-
-Cada mensaje pertenece a un autor y a un chat.
-
-### 3.16. Notificacion
-
-Representa una notificación dirigida a un usuario.
-
-- `tipo`: `CharField` con una longitud máxima de 20 caracteres y `choices=TIPO_CHOICES`.
-- `mensaje`: `TextField` que almacena el contenido de la notificación.
-- `fecha`: `DateTimeField` que registra automáticamente la fecha de creación.
-- `usuario`: `ForeignKey` que identifica al destinatario.
-- `leida`: `BooleanField` que indica si se ha leído. Tiene `default=False`.
-
-Las opciones de `tipo` son `amistad`, `comentario`, `mensaje` y `grupo`.
-
----
-
-## 4. Relaciones entre modelos
-
-### 4.1. Relaciones uno a uno (OneToOne)
-
-Una relación uno a uno permite asociar un registro de un modelo con un único registro de otro modelo.
-
-En GameLoop se utilizan tres relaciones:
-
-1. `Usuario` — `PerfilUsuario`.
-2. `Usuario` — `ConfiguracionUsuario`.
-3. `Usuario` — `EstadisticasUsuario`.
-
-Se implementan mediante `OneToOneField`. El parámetro `on_delete=models.CASCADE` indica que, si se elimina el usuario, también se eliminan sus registros relacionados.
-
-### 4.2. Relaciones muchos a uno (ManyToOne)
-
-Una relación muchos a uno permite que varios registros apunten a un mismo registro de otro modelo. En Django se implementa mediante `ForeignKey`.
-
-Ejemplos:
-
-- `Noticia` → `Usuario`, mediante `autor`.
-- `Noticia` → `Juego`, mediante `juego`.
-- `Comentario` → `Noticia`, mediante `noticia`.
-- `Comentario` → `Usuario`, mediante `usuario`.
-- `Reaccion` → `Noticia`, mediante `noticia`.
-- `Mensaje` → `Chat`, mediante `chat`.
-- `Mensaje` → `Usuario`, mediante `autor`.
-- `Notificacion` → `Usuario`, mediante `usuario`.
-- `Amistad` → `Usuario`, mediante `usuario_origen` y `usuario_destino`.
-
-### 4.3. Relaciones muchos a muchos (ManyToMany)
-
-Una relación muchos a muchos permite que varios registros de un modelo se relacionen con varios registros del otro modelo.
-
-En GameLoop se utilizan:
-
-- `Grupo.usuarios`: relaciona grupos y usuarios mediante `Pertenencia`.
-- `Chat.participantes`: relaciona chats y usuarios mediante `ParticipanteChat`.
-- `Grupo.juegos`: relaciona grupos y videojuegos mediante una tabla intermedia automática de Django.
-
-### 4.4. Tablas intermedias con atributos extra
-
-**Pertenencia**
-
-Contiene las claves foráneas `usuario` y `grupo`, además de los campos `rol` y `fecha_union`.
-
-**ParticipanteChat**
-
-Contiene las claves foráneas `usuario` y `chat`, además de los campos `fecha_union` y `rol`.
-
-Estas tablas intermedias permiten almacenar información adicional sobre cada asociación.
-
----
-
-## 5. Tipos de campos y parámetros utilizados
-
-### 5.1. Tipos de campos de datos
-
-En los modelos se utilizan los siguientes tipos de campos, sin contar los campos de relación:
-
-| Tipo | Descripción | Ejemplo |
-|---|---|---|
-| `CharField` | Almacena texto corto con longitud máxima. | `nombre` |
-| `TextField` | Almacena texto largo. | `contenido` |
-| `BooleanField` | Almacena valores verdadero o falso. | `leida` |
-| `PositiveIntegerField` | Almacena enteros no negativos. | `juegos_favoritos` |
-| `PositiveSmallIntegerField` | Almacena enteros pequeños no negativos. | `nivel` |
-| `FloatField` | Almacena números de coma flotante. | `horas_totales` |
-| `DecimalField` | Almacena números decimales con precisión definida. | `puntuacion_media` |
-| `DateField` | Almacena fechas. | `fecha_nacimiento` |
-| `DateTimeField` | Almacena fechas y horas. | `fecha_registro` |
-| `URLField` | Almacena direcciones web. | `foto_perfil` |
-
-Los campos `OneToOneField`, `ForeignKey` y `ManyToManyField` son campos de relación y no se cuentan entre los diez tipos de atributos de datos exigidos.
-
-### 5.2. Parámetros de los campos
-
-**`max_length`**
-
-Establece la longitud máxima de un campo de texto.
-
-```python
-nombre = models.CharField(max_length=100)
-```
-
-En este ejemplo, el campo puede almacenar texto con una longitud máxima de 100 caracteres.
-
-**`blank=True`**
-
-Permite que el campo quede vacío durante la validación de formularios.
-
-```python
-biografia = models.TextField(blank=True)
-```
-
-**`null=True`**
-
-Permite almacenar un valor `NULL` en la base de datos.
-
-```python
-fecha_nacimiento = models.DateField(null=True, blank=True)
-```
-
-**`default`**
-
-Define el valor predeterminado de un campo.
-
-```python
-tema_oscuro = models.BooleanField(default=False)
-```
-
-**`auto_now_add=True`**
-
-Asigna automáticamente la fecha y hora cuando se crea el registro.
-
-```python
-fecha_registro = models.DateTimeField(auto_now_add=True)
-```
-
-**`on_delete=models.CASCADE`**
-
-Establece que los registros dependientes se eliminen cuando se elimina el objeto relacionado.
-
-```python
-usuario = models.ForeignKey(
-    Usuario,
-    on_delete=models.CASCADE
-)
-```
-
-**`related_name`**
-
-Define el nombre que se utiliza para acceder a una relación desde el modelo relacionado.
-
-```python
-noticia = models.ForeignKey(
-    Noticia,
-    on_delete=models.CASCADE,
-    related_name="comentarios"
-)
-```
-
-Permite consultar los comentarios de una noticia a través de `noticia.comentarios.all()`.
-
-**`max_digits`**
-
-Establece el número máximo de dígitos de un campo decimal.
-
-**`decimal_places`**
-
-Establece el número de cifras decimales de un campo decimal.
-
-```python
-puntuacion_media = models.DecimalField(
-    max_digits=4,
-    decimal_places=2,
-    default=0
-)
-```
-
-**`choices`**
-
-Define las opciones admitidas por un campo.
-
-```python
-TIPO_CHOICES = [
-    ("privado", "Privado"),
-    ("grupal", "Grupal"),
-]
-```
-
-**`through`**
-
-Permite indicar el modelo intermedio utilizado en una relación muchos a muchos.
-
-```python
-usuarios = models.ManyToManyField(
-    Usuario,
-    through="Pertenencia",
-    related_name="grupos"
-)
-```
-
-En conjunto, los modelos utilizan más de diez parámetros distintos, entre ellos `max_length`, `blank`, `null`, `default`, `auto_now_add`, `on_delete`, `related_name`, `max_digits`, `decimal_places`, `choices` y `through`.
-
----
-
-## 6. Diagrama entidad-relación
-
-El siguiente esquema representa los modelos principales y sus relaciones. Está escrito en Mermaid para que GitHub pueda visualizarlo directamente.
+El siguiente diagrama representa de forma general las principales entidades de GameLoop y sus relaciones.
 
 ```mermaid
 erDiagram
-    USUARIO ||--|| PERFIL_USUARIO : tiene
-    USUARIO ||--|| CONFIGURACION_USUARIO : configura
-    USUARIO ||--|| ESTADISTICAS_USUARIO : registra
+    Usuario ||--|| PerfilUsuario : tiene
+    Usuario ||--|| ConfiguracionUsuario : configura
+    Usuario ||--|| EstadisticasUsuario : registra
 
-    USUARIO ||--o{ AMISTAD : origen
-    USUARIO ||--o{ AMISTAD : destino
+    Usuario ||--o{ Amistad : participa
+    Grupo ||--o{ Pertenencia : contiene
+    Usuario ||--o{ Pertenencia : pertenece
 
-    USUARIO ||--o{ NOTICIA : escribe
-    GRUPO o|--o{ NOTICIA : agrupa
-    JUEGO ||--o{ NOTICIA : trata
+    Grupo }o--o{ Juego : incluye
 
-    USUARIO ||--o{ COMENTARIO : escribe
-    NOTICIA ||--o{ COMENTARIO : recibe
+    Usuario ||--o{ Noticia : publica
+    Usuario ||--o{ Comentario : escribe
+    Usuario ||--o{ Reaccion : realiza
+    Usuario ||--o{ UsuarioJuego : registra
 
-    USUARIO ||--o{ REACCION : realiza
-    NOTICIA ||--o{ REACCION : recibe
+    Juego ||--o{ UsuarioJuego : relaciona
 
-    USUARIO ||--o{ PERTENENCIA : participa
-    GRUPO ||--o{ PERTENENCIA : incluye
+    Chat ||--o{ ParticipanteChat : contiene
+    Usuario ||--o{ ParticipanteChat : participa
 
-    USUARIO ||--o{ USUARIO_JUEGO : registra
-    JUEGO ||--o{ USUARIO_JUEGO : aparece_en
-
-    GRUPO }o--o{ JUEGO : relaciona
-
-    USUARIO ||--o{ PARTICIPANTE_CHAT : participa
-    CHAT ||--o{ PARTICIPANTE_CHAT : incluye
-
-    USUARIO ||--o{ MENSAJE : envia
-    CHAT ||--o{ MENSAJE : contiene
-
-    USUARIO ||--o{ NOTIFICACION : recibe
+    Chat ||--o{ Mensaje : contiene
+    Usuario ||--o{ Mensaje : envía
+    Usuario ||--o{ Notificacion : recibe
 ```
 
-El esquema muestra las relaciones entre usuarios, perfiles, configuraciones, estadísticas, amistades, grupos, videojuegos, noticias, comentarios, reacciones, chats, mensajes y notificaciones.
+El diagrama es una representación conceptual de las relaciones principales. Para que sea un diagrama físico exacto, las cardinalidades y todas las conexiones deben contrastarse con los campos definidos en `core/models.py`.
 
-Las relaciones muchos a muchos que tienen atributos adicionales se representan mediante los modelos intermedios `Pertenencia` y `ParticipanteChat`.
+## 10. Generación de datos de prueba
 
----
+El proyecto incluye un comando personalizado en:
 
-## 7. Seeders y generación de datos con Faker
+```text
+core/management/commands/seed.py
+```
 
-El proyecto dispone de un comando personalizado ubicado en:
+Este archivo permite crear datos de prueba para facilitar las comprobaciones de la aplicación durante el desarrollo.
 
-`core/management/commands/seed.py`
-
-El objetivo es generar datos ficticios que permitan comprobar el funcionamiento de los modelos y sus relaciones.
-
-Para ejecutar el comando:
+Si el comando está registrado correctamente como comando de administración de Django, se puede ejecutar con Python 3:
 
 ```bash
-python manage.py seed
+python3 manage.py seed
 ```
 
-### 7.1. Biblioteca Faker
+La generación de datos de prueba facilita comprobar las relaciones entre modelos y probar las funcionalidades sin tener que introducir manualmente todos los registros.
 
-Faker permite generar datos ficticios como nombres, apellidos, correos electrónicos, textos, direcciones web y fechas.
+Si se utiliza Faker, esta biblioteca permite generar datos ficticios, como nombres, direcciones de correo y otros valores de prueba.
 
-El comando utiliza:
+## 11. Instalación y ejecución con Python 3
 
-```python
-fake = Faker("es_ES")
-```
+### 11.1. Requisitos previos
 
-La configuración regional `es_ES` permite generar datos adaptados al español.
+Es necesario disponer de Python 3 y de `pip3`. Se recomienda utilizar un entorno virtual para aislar las dependencias del proyecto.
 
-### 7.2. Funciones utilizadas
+### 11.2. Crear un entorno virtual
 
-- `fake.name()`: genera un nombre ficticio.
-- `fake.email()`: genera una dirección de correo electrónico ficticia.
-- `fake.text()`: genera un texto de prueba.
-- `fake.date_of_birth()`: genera una fecha de nacimiento.
-- `fake.url()`: genera una dirección web.
-- `random.choice()`: selecciona un elemento aleatorio de una lista.
-- `random.randint()`: genera un entero aleatorio dentro de un intervalo.
-- `random.uniform()`: genera un número decimal aleatorio dentro de un intervalo.
-- `objects.create()`: crea y guarda un registro.
-- `objects.get_or_create()`: busca un registro y lo crea si no existe.
-- `transaction.atomic`: agrupa operaciones de base de datos dentro de una transacción.
-- `self.stdout.write()`: muestra mensajes en la terminal.
-
-### 7.3. Cantidad de registros
-
-El requisito de la actividad consiste en generar diez registros aleatorios de cada modelo.
-
-Es necesario verificar el recuento de todos los modelos después de ejecutar el comando. En particular, el seeder actual puede crear veinte registros de `ParticipanteChat`, ya que añade dos participantes por cada chat.
-
-También debe comprobarse que los valores generados para los campos con `choices` coincidan con las opciones definidas en los modelos.
-
----
-
-## 8. Fixtures y copias de seguridad
-
-Un fixture permite exportar los datos de una base de datos y cargarlos posteriormente.
-
-El proyecto contiene el archivo `backup.json`, que debe mantenerse actualizado y comprobarse antes de entregar.
-
-### 8.1. Crear una copia de seguridad
-
-Para exportar los datos:
+Desde la carpeta raíz del proyecto, ejecutar:
 
 ```bash
-python manage.py dumpdata \
+python3 -m venv venv
+```
+
+Activación en Linux o macOS:
+
+```bash
+source venv/bin/activate
+```
+
+Activación en Windows:
+
+```powershell
+venv\Scripts\activate
+```
+
+### 11.3. Instalar las dependencias
+
+Con el entorno virtual activado:
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+### 11.4. Aplicar las migraciones
+
+```bash
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
+
+Si las migraciones ya están incluidas en el proyecto, normalmente bastará con ejecutar `migrate`.
+
+### 11.5. Ejecutar el servidor
+
+```bash
+python3 manage.py runserver
+```
+
+A continuación, se puede acceder a la aplicación desde el navegador en:
+
+```text
+http://127.0.0.1:8000/
+```
+
+## 12. Copias de seguridad y fixtures
+
+Django permite exportar e importar datos mediante el sistema de serialización. Los archivos generados de esta manera se conocen como fixtures.
+
+### 12.1. Exportar datos
+
+Para crear una copia de los datos de la aplicación en `backup.json`, se puede ejecutar:
+
+```bash
+python3 manage.py dumpdata \
   --natural-foreign \
   --natural-primary \
   --exclude=contenttypes \
@@ -679,121 +331,36 @@ python manage.py dumpdata \
   -o backup.json
 ```
 
-Este comando genera un archivo JSON con los datos exportados.
+Este comando exporta los datos de la base de datos a un archivo JSON, excluyendo los modelos indicados.
 
-### 8.2. Restaurar la copia
+### 12.2. Importar datos
 
-En una base de datos de prueba, después de aplicar las migraciones, se puede ejecutar:
-
-```bash
-python manage.py loaddata backup.json
-```
-
-Es importante comprobar que la restauración termina correctamente y que los registros están disponibles.
-
-### 8.3. Diferencias entre migraciones, seeders y fixtures
-
-- **Migraciones:** crean y modifican la estructura de la base de datos.
-- **Seeders:** generan datos ficticios mediante un comando.
-- **Fixtures:** exportan e importan registros de la base de datos.
-
-Cada mecanismo cumple una función diferente dentro del proyecto.
-
----
-
-## 9. Comprobación de los requisitos
-
-| Requisito | Comprobación |
-|---|---|
-| Definir la aplicación web | GameLoop se describe como una comunidad de videojuegos. |
-| Crear el repositorio Git | Se proporciona el enlace a GitHub. |
-| Crear las ramas obligatorias | Comprobar que existen `Configuracion_inicial`, `Modelos` y `Backups`. |
-| Preparar el proyecto Django | Existen el proyecto y la aplicación `core`. |
-| Crear al menos diez modelos | El código contiene 16 modelos definidos. |
-| Crear tres relaciones OneToOne | Usuario, perfil, configuración y estadísticas. |
-| Crear tres relaciones ManyToOne | Existen varias relaciones mediante `ForeignKey`. |
-| Crear tres relaciones ManyToMany | Existen relaciones de grupos, usuarios, chats y videojuegos. |
-| Utilizar una tabla intermedia con atributos extra | `Pertenencia` y `ParticipanteChat`. |
-| Cuatro campos por modelo | Revisar el recuento de campos de cada modelo según el criterio del profesor. |
-| Diez tipos de campos de datos | Se utilizan diez tipos distintos sin contar las relaciones. |
-| Diez parámetros diferentes | Los parámetros se explican en el apartado 5. |
-| Crear el diagrama entidad-relación | Incluido en el apartado 6. |
-| Documentar modelos, campos y parámetros | Desarrollado en los apartados 3 y 5. |
-| Rellenar las tablas con seeders | Existe el comando `seed`. |
-| Generar datos con Faker | Implementado en `core/management/commands/seed.py`, pendiente de comprobar la cantidad exacta por modelo. |
-| Crear un backup mediante fixture | Existe `backup.json`, cuya restauración debe comprobarse. |
-| No subir archivos innecesarios | Existe `.gitignore`; comprobar los archivos ya versionados. |
-| Explicar código no visto en clase | Se explica en el apartado 7 y en las secciones correspondientes. |
-| Entregar el enlace de Git | Incluido en la portada. |
-
----
-
-## 10. Explicación del código utilizado
-
-### Herencia de `AbstractUser`
-
-El modelo `Usuario` hereda de `AbstractUser`, una clase de Django que proporciona los campos y funcionalidades habituales de autenticación. La herencia permite ampliar el usuario estándar sin tener que implementar desde cero el sistema de acceso.
-
-### Método `__str__`
-
-Es un método especial de Python que devuelve una representación textual del objeto. Django lo utiliza, por ejemplo, para mostrar nombres legibles en el panel de administración.
-
-### ORM de Django
-
-El ORM permite trabajar con la base de datos mediante objetos Python.
-
-- `objects.create()`: crea y guarda un objeto.
-- `objects.filter()`: obtiene registros que cumplen una condición.
-- `objects.get_or_create()`: recupera un objeto existente o lo crea.
-- `objects.all()`: obtiene todos los registros de un modelo.
-
-### Transacciones
-
-`transaction.atomic` permite agrupar operaciones de base de datos en una transacción. Si una operación falla y se produce una excepción, las operaciones de esa transacción pueden revertirse.
-
-### Generación de datos aleatorios
-
-Faker genera datos ficticios y `random` permite seleccionar valores aleatorios de listas o intervalos. Estas herramientas facilitan la creación de registros de prueba sin introducirlos manualmente.
-
-### Fixtures
-
-`dumpdata` exporta registros y `loaddata` permite cargarlos de nuevo. Los fixtures sirven para trasladar datos de demostración entre entornos compatibles.
-
----
-
-## 11. Archivos que no deben subirse a Git
-
-El repositorio debe contener los archivos necesarios para desarrollar, ejecutar y documentar la aplicación, evitando archivos temporales y elementos innecesarios.
-
-No deben subirse:
-
-- Carpetas `__pycache__/`.
-- Archivos `.pyc`.
-- Entornos virtuales como `.venv/`.
-- Archivos `.env` que contengan secretos.
-- Archivos temporales de editores.
-- Bases de datos locales que no formen parte de la entrega.
-
-El archivo `.gitignore` contiene reglas para excluir estos elementos.
-
-Para comprobar si hay archivos de este tipo versionados:
+Para cargar los datos almacenados en el archivo:
 
 ```bash
-git ls-files | grep -E '(__pycache__|\.pyc$|\.sqlite3$|\.env)'
+python3 manage.py loaddata backup.json
 ```
 
-Las migraciones de Django sí deben conservarse, porque permiten reproducir la estructura de la base de datos.
+La importación debe realizarse con una base de datos compatible y con las tablas y migraciones preparadas. Conviene probar las copias de seguridad antes de depender de ellas como único mecanismo de recuperación.
 
----
+## 13. Archivo `.gitignore`
 
-## 12. Conclusión
+El archivo `.gitignore` permite evitar que determinados archivos locales se añadan al repositorio.
 
-GameLoop es un proyecto de aplicación web basado en Django que permite aplicar los conceptos de modelado de datos, relaciones entre entidades, administración de registros, generación de datos de prueba y copias de seguridad.
+Es habitual excluir:
 
-La aplicación dispone de modelos para usuarios, perfiles, estadísticas, amistades, grupos, videojuegos, noticias, comentarios, reacciones, chats, mensajes y notificaciones.
+- El entorno virtual (`venv/`).
+- Los archivos compilados de Python (`__pycache__/` y `*.py[cod]`).
+- Los archivos de configuración local que contengan información sensible.
+- Las bases de datos locales, si no deben versionarse.
+- Los archivos temporales generados durante el desarrollo.
 
-Las relaciones entre modelos permiten representar las asociaciones de la comunidad, mientras que los modelos intermedios guardan atributos adicionales de las relaciones entre usuarios y grupos, y entre usuarios y chats.
+La configuración definitiva debe respetar los archivos que el proyecto necesita mantener en Git, como `requirements.txt`, las migraciones y los fixtures que se quieran entregar.
 
-El proyecto incorpora un comando de generación de datos con Faker y un archivo de fixture para exportar los registros. Antes de entregar, es necesario comprobar la ejecución del comando, la restauración del backup, la existencia de las tres ramas obligatorias y la limpieza del repositorio.
 
-**Repositorio del proyecto:** https://github.com/CLASEJMFL/Proyecto_2_DAW
+
+## 14. Conclusión
+
+GameLoop permite aplicar los conceptos fundamentales del desarrollo de aplicaciones web con Django y Python 3. La estructura de modelos permite representar usuarios, perfiles, grupos, juegos, noticias, conversaciones y notificaciones, mientras que las relaciones facilitan conectar la información almacenada.
+
+Además, el uso de comandos personalizados para generar datos de prueba y de fixtures para exportar e importar información facilita el desarrollo, la comprobación de funcionalidades y la preparación de copias de seguridad.
