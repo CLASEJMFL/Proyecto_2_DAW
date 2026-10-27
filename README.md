@@ -208,7 +208,7 @@ Es importante diferenciar `blank` y `null`: el primero afecta a la validación, 
 
 El siguiente diagrama representa de forma general las principales entidades de GameLoop y sus relaciones.
 
-<img width="967" height="566" alt="image" src="https://github.com/user-attachments/assets/f5cd8065-c805-4d33-91ed-821d6e92098d" />
+<img width="907" height="566" alt="image" src="https://github.com/user-attachments/assets/f5cd8065-c805-4d33-91ed-821d6e92098d" />
 
 <img width="907" height="566" alt="image" src="https://github.com/user-attachments/assets/7df9f2e7-4d84-448a-8fec-80c99e71ff72" />
 
