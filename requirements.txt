@@ -1,2 +1,2 @@
-Django~=5.1.1
-faker
+Django==6.1.2
+Faker
