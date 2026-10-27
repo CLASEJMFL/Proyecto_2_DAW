@@ -1,11 +1,16 @@
 import random
-from faker import Faker
+from datetime import timedelta
 
 from django.core.management.base import BaseCommand
 from django.db import transaction
+from django.utils import timezone
+from faker import Faker
 
 from core.models import (
     Usuario,
+    PerfilUsuario,
+    ConfiguracionUsuario,
+    EstadisticasUsuario,
     Amistad,
     Grupo,
     Pertenencia,
@@ -25,140 +30,237 @@ fake = Faker("es_ES")
 
 
 class Command(BaseCommand):
-    help = "Genera 10 registros de prueba por modelo"
+    help = "Genera 10 registros de prueba para cada modelo de GameLoop."
 
     @transaction.atomic
-    def handle(self, *args, **kwargs):
+    def handle(self, *args, **options):
+        # Se crean 10 usuarios nuevos; los nombres se hacen únicos.
         usuarios = []
-        grupos = []
-        juegos = []
-        noticias = []
-        chats = []
-
-        # 1. Crear 10 usuarios
         for i in range(10):
+            username = self._unique_username(i)
             usuario = Usuario.objects.create_user(
-                username=f"usuario{i + 1}",
-                email=f"usuario{i + 1}@example.com",
-                password="Prueba123!",
+                username=username,
+                email=fake.unique.email(),
+                password="GameLoopDemo123!",
                 first_name=fake.first_name(),
                 last_name=fake.last_name(),
-                biografia=fake.text(max_nb_chars=100),
                 foto_perfil=fake.image_url(),
+                biografia=fake.text(max_nb_chars=180),
             )
             usuarios.append(usuario)
 
-        # 2. Crear 10 grupos
-        for i in range(10):
-            grupo = Grupo.objects.create(
-                nombre=f"Grupo {i + 1}",
-                descripcion=fake.text(max_nb_chars=150),
+        perfiles = [
+            PerfilUsuario.objects.create(
+                usuario=usuario,
+                nombre_visible=fake.name(),
+                biografia=fake.text(max_nb_chars=160),
+                fecha_nacimiento=fake.date_of_birth(minimum_age=18, maximum_age=65),
+                web=fake.url(),
+            )
+            for usuario in usuarios
+        ]
+
+        configuraciones = [
+            ConfiguracionUsuario.objects.create(
+                usuario=usuario,
+                tema_oscuro=random.choice([True, False]),
+                notificaciones_activadas=random.choice([True, False]),
+                idioma=random.choice(["es", "en"]),
+            )
+            for usuario in usuarios
+        ]
+
+        estadisticas = [
+            EstadisticasUsuario.objects.create(
+                usuario=usuario,
+                juegos_favoritos=random.randint(0, 30),
+                horas_totales=round(random.uniform(0, 1500), 2),
+                nivel=random.randint(1, 100),
+                puntuacion_media=round(random.uniform(0, 10), 2),
+            )
+            for usuario in usuarios
+        ]
+
+        juegos = [
+            Juego.objects.create(
+                nombre=f"{fake.unique.catch_phrase()} {i + 1}",
+                descripcion=fake.text(max_nb_chars=250),
+                genero=random.choice(
+                    ["Acción", "Aventura", "RPG", "Estrategia", "Deportes", "Puzles"]
+                ),
                 imagen=fake.image_url(),
+                fecha_lanzamiento=fake.date_between(
+                    start_date="-15y", end_date="today"
+                ),
+                plataformas=random.choice(
+                    ["PC", "PlayStation", "Xbox", "Nintendo Switch", "PC y consola"]
+                ),
             )
-            grupos.append(grupo)
+            for i in range(10)
+        ]
 
-        # 3. Crear 10 juegos
-        for i in range(10):
-            juego = Juego.objects.create(
-                nombre=fake.unique.catch_phrase(),
-                descripcion=fake.text(max_nb_chars=150),
-                genero=random.choice([
-                    "Acción", "Aventura", "RPG", "Deportes",
-                    "Estrategia", "Terror"
-                ]),
+        grupos = [
+            Grupo.objects.create(
+                nombre=f"{fake.unique.word().capitalize()} {i + 1}",
+                descripcion=fake.text(max_nb_chars=180),
                 imagen=fake.image_url(),
-                plataformas=random.choice([
-                    "PC", "PS5", "Xbox", "Nintendo Switch"
-                ]),
+                fecha_creacion=fake.date_time_between(
+                    start_date="-2y", end_date="now", tzinfo=timezone.get_current_timezone()
+                ),
             )
-            juegos.append(juego)
+            for i in range(10)
+        ]
 
-        # 4. Crear 10 pertenencias
+        pertenencias = []
         for i in range(10):
-            Pertenencia.objects.create(
-                usuario=usuarios[i],
-                grupo=grupos[i],
-                rol="miembro",
-            )
-
-        # 5. Crear 10 amistades
-        for i in range(10):
-            Amistad.objects.create(
-                usuario_origen=usuarios[i],
-                usuario_destino=usuarios[(i + 1) % 10],
+            pertenencias.append(
+                Pertenencia.objects.create(
+                    usuario=usuarios[i],
+                    grupo=grupos[i],
+                    rol=random.choice(["administrador", "moderador", "miembro"]),
+                    fecha_union=timezone.now() - timedelta(days=random.randint(0, 365)),
+                )
             )
 
-        # 6. Crear 10 noticias
-        for i in range(10):
-            noticia = Noticia.objects.create(
-                titulo=fake.sentence(),
-                contenido=fake.text(max_nb_chars=300),
-                autor=usuarios[i],
-                grupo=grupos[i],
-                juego=juegos[i],
-            )
-            noticias.append(noticia)
+        # Relaciones muchos-a-muchos de grupos con juegos.
+        for grupo in grupos:
+            grupo.juegos.add(random.choice(juegos))
 
-        # 7. Crear 10 comentarios
+        amistades = []
         for i in range(10):
+            origen = usuarios[i]
+            destino = usuarios[(i + 1) % len(usuarios)]
+            amistad, _ = Amistad.objects.get_or_create(
+                usuario_origen=origen,
+                usuario_destino=destino,
+                defaults={
+                    "estado": "aceptada",
+                    "fecha_solicitud": timezone.now()
+                    - timedelta(days=random.randint(1, 180)),
+                    "fecha_aceptacion": timezone.now()
+                    - timedelta(days=random.randint(0, 90)),
+                },
+            )
+            amistades.append(amistad)
+
+        noticias = []
+        for i in range(10):
+            noticias.append(
+                Noticia.objects.create(
+                    titulo=fake.sentence(nb_words=6),
+                    contenido=fake.text(max_nb_chars=500),
+                    fecha_publicacion=timezone.now()
+                    - timedelta(days=random.randint(0, 365)),
+                    autor=usuarios[i],
+                    grupo=grupos[i],
+                    juego=juegos[i],
+                )
+            )
+
+        comentarios = [
             Comentario.objects.create(
-                contenido=fake.sentence(),
+                contenido=fake.sentence(nb_words=12),
+                fecha=timezone.now() - timedelta(days=random.randint(0, 90)),
                 usuario=usuarios[i],
-                noticia=noticias[i],
+                noticia=noticias[(i + 1) % len(noticias)],
+            )
+            for i in range(10)
+        ]
+
+        reacciones = []
+        for i in range(10):
+            reacciones.append(
+                Reaccion.objects.create(
+                    tipo=random.choice(["me_gusta", "me_encanta", "no_me_gusta"]),
+                    fecha=timezone.now() - timedelta(days=random.randint(0, 90)),
+                    usuario=usuarios[i],
+                    noticia=noticias[i],
+                )
             )
 
-        # 8. Crear 10 reacciones
-        for i in range(10):
-            Reaccion.objects.create(
-                tipo=random.choice(["me_gusta", "no_me_gusta"]),
-                usuario=usuarios[i],
-                noticia=noticias[i],
-            )
-
-        # 9. Crear 10 relaciones entre usuarios y juegos
-        for i in range(10):
+        usuario_juegos = [
             UsuarioJuego.objects.create(
                 usuario=usuarios[i],
                 juego=juegos[i],
-                horas_jugadas=random.randint(0, 500),
+                horas_jugadas=round(random.uniform(0, 300), 2),
                 favorito=random.choice([True, False]),
+                fecha_inicio=fake.date_between(start_date="-5y", end_date="today"),
+            )
+            for i in range(10)
+        ]
+
+        chats = []
+        for i in range(10):
+            chats.append(
+                Chat.objects.create(
+                    tipo=random.choice(["privado", "grupo"]),
+                    fecha_creacion=timezone.now()
+                    - timedelta(days=random.randint(0, 180)),
+                    nombre=f"Chat {fake.word().capitalize()} {i + 1}",
+                )
             )
 
-        # 10. Crear 10 chats
-        for i in range(10):
-            chat = Chat.objects.create(
-                tipo="privado",
-                nombre=f"Chat {i + 1}",
+        participantes = []
+        for i, chat in enumerate(chats):
+            participantes.append(
+                ParticipanteChat.objects.create(
+                    usuario=usuarios[i],
+                    chat=chat,
+                    fecha_union=timezone.now()
+                    - timedelta(days=random.randint(0, 90)),
+                    rol=random.choice(["administrador", "miembro"]),
+                )
             )
-            chats.append(chat)
+            # Añade un segundo participante para dar contenido a cada chat.
+            segundo = usuarios[(i + 1) % len(usuarios)]
+            if segundo != usuarios[i]:
+                ParticipanteChat.objects.get_or_create(
+                    usuario=segundo,
+                    chat=chat,
+                    defaults={
+                        "fecha_union": timezone.now(),
+                        "rol": "miembro",
+                    },
+                )
 
-        # 11. Crear 10 participantes de chat
-        for i in range(10):
-            ParticipanteChat.objects.create(
-                usuario=usuarios[i],
-                chat=chats[i],
-                rol="miembro",
-            )
-
-        # 12. Crear 10 mensajes
-        for i in range(10):
+        mensajes = [
             Mensaje.objects.create(
-                contenido=fake.sentence(),
+                contenido=fake.sentence(nb_words=10),
+                fecha_envio=timezone.now()
+                - timedelta(minutes=random.randint(1, 100000)),
                 autor=usuarios[i],
                 chat=chats[i],
             )
+            for i in range(10)
+        ]
 
-        # 13. Crear 10 notificaciones
-        for i in range(10):
+        notificaciones = [
             Notificacion.objects.create(
-                tipo="comentario",
-                mensaje=fake.sentence(),
+                tipo=random.choice(["amistad", "mensaje", "noticia", "sistema"]),
+                mensaje=fake.sentence(nb_words=10),
+                fecha=timezone.now() - timedelta(days=random.randint(0, 60)),
                 usuario=usuarios[i],
-                leida=False,
+                leida=random.choice([True, False]),
             )
+            for i in range(10)
+        ]
 
         self.stdout.write(
             self.style.SUCCESS(
-                "¡Seeder ejecutado! Se han creado los datos de prueba."
+                "Seed completado. Se han creado registros de prueba para los modelos de GameLoop."
             )
         )
+        self.stdout.write(
+            "Contraseña de los usuarios de prueba: GameLoopDemo123!"
+        )
+
+    def _unique_username(self, index):
+        base = fake.unique.user_name()[:120]
+        username = f"{base}_{index}"
+        # Evita colisiones con usuarios de ejecuciones anteriores.
+        suffix = 1
+        candidate = username
+        while Usuario.objects.filter(username=candidate).exists():
+            candidate = f"{username}_{suffix}"
+            suffix += 1
+        return candidate
