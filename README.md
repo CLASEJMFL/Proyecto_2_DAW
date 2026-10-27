@@ -249,6 +249,7 @@ Representa las notificaciones dirigidas a los usuarios.
 Las opciones de `tipo` son `amistad`, `comentario`, `mensaje` y `grupo`.
 
 ## 5. Relaciones entre modelos
+<img width="1085" height="789" alt="modelo entidad relacion" src="https://github.com/user-attachments/assets/b4fe0312-9f53-4b35-85ca-c85609affbd4" />
 
 ### 5.1. Relaciones uno a uno (OneToOne)
 
