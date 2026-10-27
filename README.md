@@ -1,4 +1,3 @@
-Aplicación Web Parte I
 Grupo Alejandro Fernández Linares y José Manuel Fernández Linares
 # GameLoop — Modelos y base de datos
 
