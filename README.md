@@ -210,7 +210,8 @@ El siguiente diagrama representa de forma general las principales entidades de G
 
 <img width="907" height="566" alt="image" src="https://github.com/user-attachments/assets/f5cd8065-c805-4d33-91ed-821d6e92098d" />
 
-<img width="907" height="566" alt="image" src="https://github.com/user-attachments/assets/7df9f2e7-4d84-448a-8fec-80c99e71ff72" />
+<img width="907" height="566" alt="image" src="https://github.com/user-attachments/assets/3b6c5201-af7a-4abf-82be-824a65c69b4a" />
+
 
 
 
