@@ -1,0 +1,16 @@
+{% extends "core/base.html" %}
+{% block title %}Buscar juegos | GameLoop{% endblock %}
+{% block content %}
+<h2>Buscar juegos</h2>
+<p>Término buscado: <strong>{{ termino }}</strong></p>
+{% if sin_coincidencias %}<p>No hay coincidencias exactas. Para que la página muestre información, se muestran los primeros juegos registrados.</p>{% endif %}
+{% for juego in juegos %}
+<article>
+    <h3>{{ juego.nombre }}</h3>
+    <p>{{ juego.descripcion }}</p>
+    <p>Género: {{ juego.genero }} | Lanzamiento: {{ juego.fecha_lanzamiento }} | Plataformas: {{ juego.plataformas }}</p>
+    <p>Grupos: {% for grupo in juego.grupos.all %}{{ grupo.nombre }}{% if not forloop.last %}, {% endif %}{% empty %}Ninguno{% endfor %}</p>
+    <p>Usuarios relacionados: {% for relacion in juego.usuariojuego_set.all %}{{ relacion.usuario.username }} ({{ relacion.horas_jugadas }} horas){% if not forloop.last %}, {% endif %}{% empty %}Ninguno{% endfor %}</p>
+</article>
+{% empty %}<p>No hay juegos registrados. Ejecuta el comando seed para crear datos de prueba.</p>{% endfor %}
+{% endblock %}

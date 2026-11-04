@@ -1,0 +1,19 @@
+{% extends "core/base.html" %}
+{% block title %}Inicio | GameLoop{% endblock %}
+{% block content %}
+<h2>Índice de URLs</h2>
+<p>Desde esta página se puede acceder a las diez funcionalidades del proyecto.</p>
+<ul>
+    <li><a href="{% url 'index' %}">1. Página principal</a></li>
+    <li><a href="{% url 'usuarios' %}">2. Listado de usuarios</a></li>
+    <li><a href="{% url 'usuario_detalle' 1 %}">3. Detalle del usuario 1</a></li>
+    <li><a href="{% url 'juegos' %}">4. Listado de juegos</a></li>
+    <li><a href="{% url 'grupos' %}">5. Listado de grupos</a></li>
+    <li><a href="{% url 'grupo_detalle' 1 'todos' %}">6. Detalle del grupo 1</a></li>
+    <li><a href="{% url 'noticias' %}">7. Listado de noticias</a></li>
+    <li><a href="{% url 'noticia_detalle' 1 %}">8. Detalle de la noticia 1</a></li>
+    <li><a href="{% url 'estadisticas' %}">9. Estadísticas</a></li>
+    <li><a href="{% url 'buscar_juego' 'aventura' %}">10. Buscar juegos: aventura</a></li>
+</ul>
+<p>También puedes probar <a href="{% url 'buscar_juego' 'accion' %}">la búsqueda de acción</a>.</p>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "core/base.html" %}
+{% block title %}Grupos | GameLoop{% endblock %}
+{% block content %}
+<h2>Grupos</h2>
+{% for grupo in grupos %}
+<article>
+    <h3><a href="{% url 'grupo_detalle' grupo.id 'todos' %}">{{ grupo.nombre }}</a></h3>
+    <p>{{ grupo.descripcion }}</p>
+    <p>Creado: {{ grupo.fecha_creacion }} | Imagen: {% if grupo.imagen %}<a href="{{ grupo.imagen }}">Ver imagen</a>{% else %}No indicada{% endif %}</p>
+    <h4>Usuarios</h4>
+    <ul>{% for usuario in grupo.usuarios.all %}<li>{{ usuario.username }} — {{ usuario.email }}</li>{% empty %}<li>Sin usuarios.</li>{% endfor %}</ul>
+    <h4>Juegos</h4>
+    <ul>{% for juego in grupo.juegos.all %}<li>{{ juego.nombre }} — {{ juego.genero }}</li>{% empty %}<li>Sin juegos.</li>{% endfor %}</ul>
+    <h4>Datos de la tabla intermedia Pertenencia</h4>
+    <ul>{% for pertenencia in grupo.pertenencia_set.all %}<li>{{ pertenencia.usuario.username }} — Rol: {{ pertenencia.rol }} — Fecha de unión: {{ pertenencia.fecha_union }}</li>{% empty %}<li>Sin pertenencias.</li>{% endfor %}</ul>
+</article>
+{% empty %}<p>No hay grupos registrados.</p>{% endfor %}
+{% endblock %}

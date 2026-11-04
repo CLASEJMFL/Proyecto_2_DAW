@@ -1,0 +1,18 @@
+{% extends "core/base.html" %}
+{% block title %}Juegos | GameLoop{% endblock %}
+{% block content %}
+<h2>Juegos</h2>
+{% for juego in juegos %}
+<article>
+    <h3>{{ juego.nombre }}</h3>
+    <p>{{ juego.descripcion }}</p>
+    <p>Género: {{ juego.genero }} | Lanzamiento: {{ juego.fecha_lanzamiento }} | Plataformas: {{ juego.plataformas }}</p>
+    {% if juego.imagen %}<p><a href="{{ juego.imagen }}">Ver imagen</a></p>{% endif %}
+    <p>Grupos: {% for grupo in juego.grupos.all %}<a href="{% url 'grupo_detalle' grupo.id 'todos' %}">{{ grupo.nombre }}</a>{% if not forloop.last %}, {% endif %}{% empty %}Ninguno{% endfor %}</p>
+    <h4>Usuarios relacionados</h4>
+    <ul>{% for relacion in juego.usuariojuego_set.all %}<li>{{ relacion.usuario.username }} — {{ relacion.horas_jugadas }} horas — Favorito: {{ relacion.favorito }} — Inicio: {{ relacion.fecha_inicio }}</li>{% empty %}<li>No hay usuarios asociados.</li>{% endfor %}</ul>
+    <h4>Noticias sobre este juego</h4>
+    <ul>{% for noticia in juego.noticia_set.all %}<li><a href="{% url 'noticia_detalle' noticia.id %}">{{ noticia.titulo }}</a> — Autor: {{ noticia.autor.username }}</li>{% empty %}<li>No hay noticias.</li>{% endfor %}</ul>
+</article>
+{% empty %}<p>No hay juegos registrados.</p>{% endfor %}
+{% endblock %}

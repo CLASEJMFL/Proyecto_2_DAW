@@ -1,0 +1,25 @@
+{% extends "core/base.html" %}
+{% block title %}Usuarios | GameLoop{% endblock %}
+{% block content %}
+<h2>Usuarios</h2>
+{% for usuario in usuarios %}
+<article>
+    <h3><a href="{% url 'usuario_detalle' usuario.id %}">{{ usuario.username }}</a></h3>
+    <p>Nombre: {{ usuario.first_name }} {{ usuario.last_name }} | Email: {{ usuario.email }}</p>
+    <p>Biografía: {{ usuario.biografia|default:"Sin biografía" }}</p>
+    {% if usuario.perfil %}
+        <p>Nombre visible: {{ usuario.perfil.nombre_visible }} | Web: {{ usuario.perfil.web }}</p>
+    {% endif %}
+    {% if usuario.configuracion %}
+        <p>Idioma: {{ usuario.configuracion.idioma }} | Tema oscuro: {{ usuario.configuracion.tema_oscuro }} | Notificaciones: {{ usuario.configuracion.notificaciones_activadas }}</p>
+    {% endif %}
+    {% if usuario.estadisticas %}
+        <p>Nivel: {{ usuario.estadisticas.nivel }} | Horas totales: {{ usuario.estadisticas.horas_totales }} | Puntuación media: {{ usuario.estadisticas.puntuacion_media }}</p>
+    {% endif %}
+    <p>Grupos: {% for grupo in usuario.grupos.all %}<a href="{% url 'grupo_detalle' grupo.id 'todos' %}">{{ grupo.nombre }}</a>{% if not forloop.last %}, {% endif %}{% empty %}Ninguno{% endfor %}</p>
+    <p>Amistades enviadas: {% for amistad in usuario.amistades_enviadas.all %}{{ amistad.usuario_destino.username }} ({{ amistad.estado }}){% if not forloop.last %}, {% endif %}{% empty %}Ninguna{% endfor %}</p>
+</article>
+{% empty %}
+<p>No hay usuarios. Ejecuta el comando de datos de prueba indicado en las instrucciones.</p>
+{% endfor %}
+{% endblock %}
